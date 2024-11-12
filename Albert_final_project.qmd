@@ -18,19 +18,55 @@ By Rose Albert
 
 ## Overview {#sec-overview}
 
-Preterm birth affects approximately 10% of all births and contributes to neonatal mortality and morbidity. There is a well-established male vulnerability and female resilience during the neonatal period. The goal of this project is to interrogate sex as a biological variable at the county-level using CDC Wonder Natality Data and identify sex-differences in preterm birth and NICU admission. I have spoken with Dr. Aimin Chen and Dr. Heather Burris about biological and structural determinants contributing to preterm birth inequity, as well as potential areas of clinical, public health, and policy intervention. The data for this project can be found in my final project GitHub repository.
+Preterm birth affects approximately 10% of all births, and there is a well-established male vulnerability and female resilience during the neonatal period. The goal of this project is to interrogate sex as a biological variable at the county-level using CDC Wonder Natality Data and identify sex-differences in preterm birth rates and NICU admission. I have spoken with Dr. Aimin Chen and Dr. Heather Burris about biological and structural determinants contributing to preterm birth inequity, as well as potential areas of clinical, public health, and policy intervention.
+
+The data for this project can be found in my [final project GitHub repository](https://github.com/rosemalbert/BMIN503_Final_Project/tree/master).
 
 ## Introduction {#sec-introduction}
 
-Preterm birth can predispose infants to immediate risks in the neonatal as well as long-term adverse sequelae. For example, preterm infants are born with underdeveloped lungs and often require therapeutic interventions such as surfactant administration, antibiotics, steroids, mechanical ventilation, and supplemental oxygen for survival. However, these therapeutics can also pose postnatal insults and contribute to lung injury and disease such as bronchopulmonary dysplasia.
+Preterm birth can predispose infants to immediate risks in the neonatal period as well as long-term adverse sequelae. For example, preterm infants are born with underdeveloped lungs and often require therapeutic interventions such as surfactant administration, antibiotics, steroids, mechanical ventilation, and supplemental oxygen for survival. However, these therapeutics can also pose postnatal insults and contribute to lung injury and disease such as bronchopulmonary dysplasia.
 
-There is a well-established male vulnerability in the neonatal period wherein male neonates have higher infant mortality and
-
-Explain why your problem is interdisciplinary, what fields can contribute to its understanding, and incorporate background related to what you learned from meeting with faculty/staff.
+Interrogation of sex as a biological variable has received increasing attention as a critical area for understanding basic pathophysiology and differential response to therapeutics. Male sex is an independent risk factor for numerous pediatric diseases and diseases of prematurity. This project will investigate male susceptibility to preterm birth and NICU admission at the county-level. An understanding of preterm birth characteristics can inform local public health interventions.
 
 ## Methods {#sec-methods}
 
-Describe the data used and general methodological approach used to address the problem described in the @sec-introduction. Subsequently, incorporate full R code necessary to retrieve and clean data, and perform analysis. Be sure to include a description of code so that others (including your future self) can understand what you are doing and why.
+[*Data curation and cleaning*]{.underline}
+
+*County-level Birth Characteristics Data Source:* I am using the [CDC Wonder Natality Data](https://wonder.cdc.gov/wonder/help/Natality-expanded.html#) (2023) grouped by "County of Residence," "Sex of Infant," "NICU Admission," and "OE Gestational Age Recode 10," with the measures "Births" and "Percent of Total Births."
+
+*Mapping Data Source:* I am drawing from Assignment 5 to use geospatial data, tidy census, and leaflet to generate interactive maps.
+
+```{r}
+#load necessary libraries
+library(tidyverse)
+library(sf)
+library(tigris)
+library(tidycensus)
+library(leaflet)
+options(tigris_use_cache = TRUE)
+options(progress_enabled = FALSE)
+
+#Load county-level birth data downloaded from CDC Wonder
+birth_data <- read.delim("https://raw.githubusercontent.com/rosemalbert/BMIN503_Final_Project/refs/heads/master/Natality%2C%202016-2023%20expanded_sex.txt")
+
+county_data <- read.delim("https://raw.githubusercontent.com/rosemalbert/BMIN503_Final_Project/refs/heads/master/Natality%2C%202016-2023%20expanded%20_county.txt")
+
+#view column names 
+colnames(birth_data)
+colnames(county_data)
+
+#merge birth_data and county_data
+
+#calculate birth rate for each characteristic and add as a column 
+
+#load census shapefile data and merge by county FIPs 
+```
+
+[*Analysis plan*]{.underline}
+
+*Exploratory analysis of data:* Generate county-level choropleth maps of birth rates (births/total population for each county). Generate county-level choropleth maps of preterm birth rates (\<37 gestational age births/total population). Generate sex-stratified maps of preterm birth rates. Generate sex-stratified choropleth maps of NICU admissions by county. Generate bar graphs showing NICU admission rates by sex and sex distribution of gestational age groups.
+
+*Data analysis:* Conduct 2-way ANOVA to determine if sex as a biological variable is a significant predictor of NICU admission. Identify counties with highest and lowest preterm birth rates, and the highest and lowest NICU admission rates.
 
 ## Results {#sec-results}
 
