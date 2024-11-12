@@ -1,0 +1,687 @@
+"Notes"	"County of Residence"	"County of Residence Code"	Births	Total Population	Birth Rate	% of Total Births
+	"Baldwin County, AL"	"01003"	2486	253507	9.81	0.07%
+	"Calhoun County, AL"	"01015"	1258	116429	10.80	0.03%
+	"Etowah County, AL"	"01055"	1163	103241	11.26	0.03%
+	"Houston County, AL"	"01069"	1278	108462	11.78	0.04%
+	"Jefferson County, AL"	"01073"	7866	662895	11.87	0.22%
+	"Lee County, AL"	"01081"	1985	183215	10.83	0.06%
+	"Madison County, AL"	"01089"	4559	412600	11.05	0.13%
+	"Mobile County, AL"	"01097"	5054	411640	12.28	0.14%
+	"Montgomery County, AL"	"01101"	2810	224980	12.49	0.08%
+	"Morgan County, AL"	"01103"	1512	125133	12.08	0.04%
+	"Shelby County, AL"	"01117"	2336	233000	10.03	0.06%
+	"Tuscaloosa County, AL"	"01125"	2505	237373	10.55	0.07%
+	"Unidentified Counties, AL"	"01999"	23046	2035993	11.32	0.64%
+	"Anchorage Borough, AK"	"02020"	3513	286075	12.28	0.10%
+	"Unidentified Counties, AK"	"02999"	5502	447331	12.30	0.15%
+	"Cochise County, AZ"	"04003"	1220	124640	9.79	0.03%
+	"Coconino County, AZ"	"04005"	1287	144472	8.91	0.04%
+	"Maricopa County, AZ"	"04013"	50307	4585871	10.97	1.40%
+	"Mohave County, AZ"	"04015"	1704	223682	7.62	0.05%
+	"Navajo County, AZ"	"04017"	1228	109175	11.25	0.03%
+	"Pima County, AZ"	"04019"	9846	1063162	9.26	0.27%
+	"Pinal County, AZ"	"04021"	5376	484239	11.10	0.15%
+	"Yavapai County, AZ"	"04025"	1757	249081	7.05	0.05%
+	"Yuma County, AZ"	"04027"	2841	213221	13.32	0.08%
+	"Unidentified Counties, AZ"	"04999"	2530	233801	10.82	0.07%
+	"Benton County, AR"	"05007"	3830	311013	12.31	0.11%
+	"Faulkner County, AR"	"05045"	1489	129951	11.46	0.04%
+	"Pulaski County, AR"	"05119"	4801	400009	12.00	0.13%
+	"Saline County, AR"	"05125"	1389	129574	10.72	0.04%
+	"Sebastian County, AR"	"05131"	1546	129098	11.98	0.04%
+	"Washington County, AR"	"05143"	3265	261549	12.48	0.09%
+	"Unidentified Counties, AR"	"05999"	18944	1706538	11.10	0.53%
+	"Alameda County, CA"	"06001"	16194	1622188	9.98	0.45%
+	"Butte County, CA"	"06007"	2040	207172	9.85	0.06%
+	"Contra Costa County, CA"	"06013"	11199	1155025	9.70	0.31%
+	"El Dorado County, CA"	"06017"	1430	192215	7.44	0.04%
+	"Fresno County, CA"	"06019"	13096	1017162	12.88	0.36%
+	"Humboldt County, CA"	"06023"	1073	133985	8.01	0.03%
+	"Imperial County, CA"	"06025"	2268	179057	12.67	0.06%
+	"Kern County, CA"	"06029"	12071	913820	13.21	0.34%
+	"Kings County, CA"	"06031"	2017	152682	13.21	0.06%
+	"Los Angeles County, CA"	"06037"	90767	9663345	9.39	2.52%
+	"Madera County, CA"	"06039"	2179	162858	13.38	0.06%
+	"Marin County, CA"	"06041"	2180	254407	8.57	0.06%
+	"Merced County, CA"	"06047"	3657	291920	12.53	0.10%
+	"Monterey County, CA"	"06053"	5343	430723	12.40	0.15%
+	"Napa County, CA"	"06055"	1255	133216	9.42	0.03%
+	"Orange County, CA"	"06059"	29994	3135755	9.57	0.83%
+	"Placer County, CA"	"06061"	3775	423561	8.91	0.10%
+	"Riverside County, CA"	"06065"	26401	2492442	10.59	0.73%
+	"Sacramento County, CA"	"06067"	17392	1584288	10.98	0.48%
+	"San Bernardino County, CA"	"06071"	24766	2195611	11.28	0.69%
+	"San Diego County, CA"	"06073"	35594	3269973	10.89	0.99%
+	"San Francisco County, CA"	"06075"	6800	808988	8.41	0.19%
+	"San Joaquin County, CA"	"06077"	9559	800965	11.93	0.27%
+	"San Luis Obispo County, CA"	"06079"	2441	281639	8.67	0.07%
+	"San Mateo County, CA"	"06081"	7145	726353	9.84	0.20%
+	"Santa Barbara County, CA"	"06083"	5437	441257	12.32	0.15%
+	"Santa Clara County, CA"	"06085"	18322	1877592	9.76	0.51%
+	"Santa Cruz County, CA"	"06087"	2140	261547	8.18	0.06%
+	"Shasta County, CA"	"06089"	1821	180366	10.10	0.05%
+	"Solano County, CA"	"06095"	4630	449218	10.31	0.13%
+	"Sonoma County, CA"	"06097"	4363	481812	9.06	0.12%
+	"Stanislaus County, CA"	"06099"	6718	551430	12.18	0.19%
+	"Tulare County, CA"	"06107"	6544	479468	13.65	0.18%
+	"Ventura County, CA"	"06111"	8348	829590	10.06	0.23%
+	"Yolo County, CA"	"06113"	1896	220544	8.60	0.05%
+	"Unidentified Counties, CA"	"06999"	9253	963019	9.61	0.26%
+	"Adams County, CO"	"08001"	6338	533365	11.88	0.18%
+	"Arapahoe County, CO"	"08005"	7505	656061	11.44	0.21%
+	"Boulder County, CO"	"08013"	2305	326831	7.05	0.06%
+	"Denver County, CO"	"08031"	8741	716577	12.20	0.24%
+	"Douglas County, CO"	"08035"	3850	383906	10.03	0.11%
+	"El Paso County, CO"	"08041"	8866	744215	11.91	0.25%
+	"Jefferson County, CO"	"08059"	5260	576366	9.13	0.15%
+	"Larimer County, CO"	"08069"	2886	370771	7.78	0.08%
+	"Mesa County, CO"	"08077"	1414	159681	8.86	0.04%
+	"Pueblo County, CO"	"08101"	1709	169422	10.09	0.05%
+	"Weld County, CO"	"08123"	4831	359442	13.44	0.13%
+	"Unidentified Counties, CO"	"08999"	7789	880973	8.84	0.22%
+	"Fairfield County, CT"	"09001"	10147	Not Available	Not Available	0.28%
+	"Hartford County, CT"	"09003"	8727	Not Available	Not Available	0.24%
+	"Litchfield County, CT"	"09005"	1440	Not Available	Not Available	0.04%
+	"Middlesex County, CT"	"09007"	1298	Not Available	Not Available	0.04%
+	"New Haven County, CT"	"09009"	8322	Not Available	Not Available	0.23%
+	"New London County, CT"	"09011"	2477	Not Available	Not Available	0.07%
+	"Tolland County, CT"	"09013"	1089	Not Available	Not Available	0.03%
+	"Windham County, CT"	"09015"	1059	Not Available	Not Available	0.03%
+	"Kent County, DE"	"10001"	2133	189789	11.24	0.06%
+	"New Castle County, DE"	"10003"	5930	578592	10.25	0.16%
+	"Sussex County, DE"	"10005"	2364	263509	8.97	0.07%
+	"District of Columbia, DC"	"11001"	7896	678972	11.63	0.22%
+	"Alachua County, FL"	"12001"	2543	285994	8.89	0.07%
+	"Bay County, FL"	"12005"	2187	190769	11.46	0.06%
+	"Brevard County, FL"	"12009"	5279	643979	8.20	0.15%
+	"Broward County, FL"	"12011"	20143	1962531	10.26	0.56%
+	"Charlotte County, FL"	"12015"	1028	206134	4.99	0.03%
+	"Citrus County, FL"	"12017"	1062	166696	6.37	0.03%
+	"Clay County, FL"	"12019"	2251	232439	9.68	0.06%
+	"Collier County, FL"	"12021"	3465	404310	8.57	0.10%
+	"Duval County, FL"	"12031"	12657	1030822	12.28	0.35%
+	"Escambia County, FL"	"12033"	3641	326928	11.14	0.10%
+	"Hernando County, FL"	"12053"	1721	212807	8.09	0.05%
+	"Hillsborough County, FL"	"12057"	16868	1535564	10.98	0.47%
+	"Indian River County, FL"	"12061"	1229	169795	7.24	0.03%
+	"Lake County, FL"	"12069"	3842	424462	9.05	0.11%
+	"Lee County, FL"	"12071"	7756	834573	9.29	0.22%
+	"Leon County, FL"	"12073"	2695	296913	9.08	0.07%
+	"Manatee County, FL"	"12081"	3942	441095	8.94	0.11%
+	"Marion County, FL"	"12083"	3599	409959	8.78	0.10%
+	"Martin County, FL"	"12085"	1247	163315	7.64	0.03%
+	"Miami-Dade County, FL"	"12086"	29516	2686867	10.99	0.82%
+	"Okaloosa County, FL"	"12091"	2505	218464	11.47	0.07%
+	"Orange County, FL"	"12095"	16274	1471416	11.06	0.45%
+	"Osceola County, FL"	"12097"	4965	437784	11.34	0.14%
+	"Palm Beach County, FL"	"12099"	15082	1533801	9.83	0.42%
+	"Pasco County, FL"	"12101"	5818	632996	9.19	0.16%
+	"Pinellas County, FL"	"12103"	7042	961596	7.32	0.20%
+	"Polk County, FL"	"12105"	9229	818330	11.28	0.26%
+	"St. Johns County, FL"	"12109"	2527	320110	7.89	0.07%
+	"St. Lucie County, FL"	"12111"	3730	373586	9.98	0.10%
+	"Santa Rosa County, FL"	"12113"	1979	203162	9.74	0.06%
+	"Sarasota County, FL"	"12115"	2983	469013	6.36	0.08%
+	"Seminole County, FL"	"12117"	4349	484271	8.98	0.12%
+	"Volusia County, FL"	"12127"	5001	590357	8.47	0.14%
+	"Unidentified Counties, FL"	"12999"	13255	1469888	9.02	0.37%
+	"Bartow County, GA"	"13015"	1376	115041	11.96	0.04%
+	"Bibb County, GA"	"13021"	1916	156512	12.24	0.05%
+	"Carroll County, GA"	"13045"	1589	127098	12.50	0.04%
+	"Chatham County, GA"	"13051"	3576	303655	11.78	0.10%
+	"Cherokee County, GA"	"13057"	3086	286602	10.77	0.09%
+	"Clarke County, GA"	"13059"	1334	129933	10.27	0.04%
+	"Clayton County, GA"	"13063"	3332	298300	11.17	0.09%
+	"Cobb County, GA"	"13067"	8703	776743	11.20	0.24%
+	"Columbia County, GA"	"13073"	1640	165162	9.93	0.05%
+	"Coweta County, GA"	"13077"	1668	155892	10.70	0.05%
+	"DeKalb County, GA"	"13089"	9483	762992	12.43	0.26%
+	"Douglas County, GA"	"13097"	1702	149160	11.41	0.05%
+	"Fayette County, GA"	"13113"	897	123351	7.27	0.02%
+	"Forsyth County, GA"	"13117"	2352	272887	8.62	0.07%
+	"Fulton County, GA"	"13121"	12357	1079105	11.45	0.34%
+	"Gwinnett County, GA"	"13135"	11135	983526	11.32	0.31%
+	"Hall County, GA"	"13139"	2805	217267	12.91	0.08%
+	"Henry County, GA"	"13151"	2770	254613	10.88	0.08%
+	"Houston County, GA"	"13153"	2002	171974	11.64	0.06%
+	"Lowndes County, GA"	"13185"	1530	120712	12.67	0.04%
+	"Muscogee County, GA"	"13215"	2567	201877	12.72	0.07%
+	"Paulding County, GA"	"13223"	1866	183164	10.19	0.05%
+	"Richmond County, GA"	"13245"	2730	205414	13.29	0.08%
+	"Whitfield County, GA"	"13313"	1310	103687	12.63	0.04%
+	"Unidentified Counties, GA"	"13999"	41394	3684560	11.23	1.15%
+	"Hawaii County, HI"	"15001"	2055	207615	9.90	0.06%
+	"Honolulu County, HI"	"15003"	10474	989408	10.59	0.29%
+	"Maui County, HI"	"15009"	1566	164183	9.54	0.04%
+	"Unidentified Counties, HI"	"15999"	713	73932	9.64	0.02%
+	"Ada County, ID"	"16001"	5086	524673	9.69	0.14%
+	"Bonneville County, ID"	"16019"	1725	131366	13.13	0.05%
+	"Canyon County, ID"	"16027"	3431	257674	13.32	0.10%
+	"Kootenai County, ID"	"16055"	1994	185010	10.78	0.06%
+	"Unidentified Counties, ID"	"16999"	10161	866003	11.73	0.28%
+	"Champaign County, IL"	"17019"	1895	205644	9.21	0.05%
+	"Cook County, IL"	"17031"	50764	5087072	9.98	1.41%
+	"DeKalb County, IL"	"17037"	982	100288	9.79	0.03%
+	"DuPage County, IL"	"17043"	9552	921213	10.37	0.27%
+	"Kane County, IL"	"17089"	5504	514982	10.69	0.15%
+	"Kankakee County, IL"	"17091"	1069	105940	10.09	0.03%
+	"Kendall County, IL"	"17093"	1500	139976	10.72	0.04%
+	"Lake County, IL"	"17097"	6436	708760	9.08	0.18%
+	"LaSalle County, IL"	"17099"	1047	108309	9.67	0.03%
+	"McHenry County, IL"	"17111"	2976	312800	9.51	0.08%
+	"McLean County, IL"	"17113"	1610	170441	9.45	0.04%
+	"Macon County, IL"	"17115"	1032	100591	10.26	0.03%
+	"Madison County, IL"	"17119"	2616	262752	9.96	0.07%
+	"Peoria County, IL"	"17143"	1966	177513	11.08	0.05%
+	"Rock Island County, IL"	"17161"	1494	141236	10.58	0.04%
+	"St. Clair County, IL"	"17163"	2379	251018	9.48	0.07%
+	"Sangamon County, IL"	"17167"	2010	193491	10.39	0.06%
+	"Tazewell County, IL"	"17179"	1294	129541	9.99	0.04%
+	"Will County, IL"	"17197"	6835	700728	9.75	0.19%
+	"Winnebago County, IL"	"17201"	3049	280922	10.85	0.08%
+	"Unidentified Counties, IL"	"17999"	18810	1936472	9.71	0.52%
+	"Allen County, IN"	"18003"	5100	394545	12.93	0.14%
+	"Clark County, IN"	"18019"	1433	125467	11.42	0.04%
+	"Delaware County, IN"	"18035"	1062	112321	9.46	0.03%
+	"Elkhart County, IN"	"18039"	2857	206409	13.84	0.08%
+	"Hamilton County, IN"	"18057"	3905	371645	10.51	0.11%
+	"Hendricks County, IN"	"18063"	1857	186387	9.96	0.05%
+	"Johnson County, IN"	"18081"	1885	167819	11.23	0.05%
+	"Lake County, IN"	"18089"	5096	500598	10.18	0.14%
+	"La Porte County, IN"	"18091"	1084	111706	9.70	0.03%
+	"Madison County, IN"	"18095"	1398	132504	10.55	0.04%
+	"Marion County, IN"	"18097"	14368	968460	14.84	0.40%
+	"Monroe County, IN"	"18105"	988	139342	7.09	0.03%
+	"Porter County, IN"	"18127"	1505	175335	8.58	0.04%
+	"St. Joseph County, IN"	"18141"	3115	272848	11.42	0.09%
+	"Tippecanoe County, IN"	"18157"	1781	188792	9.43	0.05%
+	"Vanderburgh County, IN"	"18163"	2147	179810	11.94	0.06%
+	"Vigo County, IN"	"18167"	1086	106153	10.23	0.03%
+	"Unidentified Counties, IN"	"18999"	28333	2522058	11.23	0.79%
+	"Black Hawk County, IA"	"19013"	1539	130471	11.80	0.04%
+	"Johnson County, IA"	"19103"	1690	157528	10.73	0.05%
+	"Linn County, IA"	"19113"	2508	228972	10.95	0.07%
+	"Polk County, IA"	"19153"	6280	505255	12.43	0.17%
+	"Scott County, IA"	"19163"	1873	174270	10.75	0.05%
+	"Woodbury County, IA"	"19193"	1392	105951	13.14	0.04%
+	"Unidentified Counties, IA"	"19999"	20770	1904557	10.91	0.58%
+	"Douglas County, KS"	"20045"	978	120553	8.11	0.03%
+	"Johnson County, KS"	"20091"	6882	622237	11.06	0.19%
+	"Sedgwick County, KS"	"20173"	6474	528469	12.25	0.18%
+	"Shawnee County, KS"	"20177"	1879	177746	10.57	0.05%
+	"Wyandotte County, KS"	"20209"	2373	165281	14.36	0.07%
+	"Unidentified Counties, KS"	"20999"	15479	1326260	11.67	0.43%
+	"Boone County, KY"	"21015"	1692	140496	12.04	0.05%
+	"Fayette County, KY"	"21067"	3652	320154	11.41	0.10%
+	"Hardin County, KY"	"21093"	1290	112273	11.49	0.04%
+	"Jefferson County, KY"	"21111"	9734	772144	12.61	0.27%
+	"Kenton County, KY"	"21117"	2148	171321	12.54	0.06%
+	"Warren County, KY"	"21227"	1798	142229	12.64	0.05%
+	"Unidentified Counties, KY"	"21999"	31670	2867537	11.04	0.88%
+	"Ascension Parish, LA"	"22005"	1670	131632	12.69	0.05%
+	"Bossier Parish, LA"	"22015"	1561	129795	12.03	0.04%
+	"Caddo Parish, LA"	"22017"	2767	226386	12.22	0.08%
+	"Calcasieu Parish, LA"	"22019"	2525	203761	12.39	0.07%
+	"East Baton Rouge Parish, LA"	"22033"	5384	448467	12.01	0.15%
+	"Jefferson Parish, LA"	"22051"	5069	421777	12.02	0.14%
+	"Lafayette Parish, LA"	"22055"	3284	249750	13.15	0.09%
+	"Livingston Parish, LA"	"22063"	1841	150145	12.26	0.05%
+	"Orleans Parish, LA"	"22071"	3822	364136	10.50	0.11%
+	"Ouachita Parish, LA"	"22073"	1977	157568	12.55	0.05%
+	"Rapides Parish, LA"	"22079"	1558	126260	12.34	0.04%
+	"St. Tammany Parish, LA"	"22103"	2810	275583	10.20	0.08%
+	"Tangipahoa Parish, LA"	"22105"	1952	138064	14.14	0.05%
+	"Terrebonne Parish, LA"	"22109"	1238	103616	11.95	0.03%
+	"Unidentified Counties, LA"	"22999"	17469	1446809	12.07	0.49%
+	"Androscoggin County, ME"	"23001"	1115	113765	9.80	0.03%
+	"Cumberland County, ME"	"23005"	2784	310230	8.97	0.08%
+	"Kennebec County, ME"	"23011"	1027	127259	8.07	0.03%
+	"Penobscot County, ME"	"23019"	1201	155312	7.73	0.03%
+	"York County, ME"	"23031"	1826	218586	8.35	0.05%
+	"Unidentified Counties, ME"	"23999"	3674	470570	7.81	0.10%
+	"Anne Arundel County, MD"	"24003"	6504	594582	10.94	0.18%
+	"Baltimore County, MD"	"24005"	9119	844703	10.80	0.25%
+	"Carroll County, MD"	"24013"	1626	176639	9.21	0.05%
+	"Cecil County, MD"	"24015"	1202	105672	11.37	0.03%
+	"Charles County, MD"	"24017"	1745	171973	10.15	0.05%
+	"Frederick County, MD"	"24021"	3182	293391	10.85	0.09%
+	"Harford County, MD"	"24025"	2629	264644	9.93	0.07%
+	"Howard County, MD"	"24027"	2943	336001	8.76	0.08%
+	"Montgomery County, MD"	"24031"	10975	1058474	10.37	0.31%
+	"Prince George's County, MD"	"24033"	10527	947430	11.11	0.29%
+	"St. Mary's County, MD"	"24037"	1309	115281	11.35	0.04%
+	"Washington County, MD"	"24043"	1591	155813	10.21	0.04%
+	"Baltimore city, MD"	"24510"	6696	565239	11.85	0.19%
+	"Unidentified Counties, MD"	"24999"	5546	550411	10.08	0.15%
+	"Barnstable County, MA"	"25001"	1503	231735	6.49	0.04%
+	"Berkshire County, MA"	"25003"	890	126818	7.02	0.02%
+	"Bristol County, MA"	"25005"	5540	581841	9.52	0.15%
+	"Essex County, MA"	"25009"	8523	810089	10.52	0.24%
+	"Hampden County, MA"	"25013"	4586	460291	9.96	0.13%
+	"Hampshire County, MA"	"25015"	863	162502	5.31	0.02%
+	"Middlesex County, MA"	"25017"	15478	1623952	9.53	0.43%
+	"Norfolk County, MA"	"25021"	6819	727473	9.37	0.19%
+	"Plymouth County, MA"	"25023"	5302	535308	9.90	0.15%
+	"Suffolk County, MA"	"25025"	8176	768425	10.64	0.23%
+	"Worcester County, MA"	"25027"	8628	866866	9.95	0.24%
+	"Unidentified Counties, MA"	"25999"	785	106099	7.40	0.02%
+	"Allegan County, MI"	"26005"	1181	121939	9.69	0.03%
+	"Bay County, MI"	"26017"	841	102500	8.20	0.02%
+	"Berrien County, MI"	"26021"	1401	152261	9.20	0.04%
+	"Calhoun County, MI"	"26025"	1323	133366	9.92	0.04%
+	"Eaton County, MI"	"26045"	1026	108820	9.43	0.03%
+	"Genesee County, MI"	"26049"	4002	401522	9.97	0.11%
+	"Ingham County, MI"	"26065"	2683	284637	9.43	0.07%
+	"Jackson County, MI"	"26075"	1501	159424	9.42	0.04%
+	"Kalamazoo County, MI"	"26077"	2552	262215	9.73	0.07%
+	"Kent County, MI"	"26081"	7889	661354	11.93	0.22%
+	"Livingston County, MI"	"26093"	1649	196757	8.38	0.05%
+	"Macomb County, MI"	"26099"	8523	875101	9.74	0.24%
+	"Monroe County, MI"	"26115"	1352	155045	8.72	0.04%
+	"Muskegon County, MI"	"26121"	1864	176564	10.56	0.05%
+	"Oakland County, MI"	"26125"	12066	1270426	9.50	0.34%
+	"Ottawa County, MI"	"26139"	3021	303372	9.96	0.08%
+	"Saginaw County, MI"	"26145"	1874	187782	9.98	0.05%
+	"St. Clair County, MI"	"26147"	1427	159874	8.93	0.04%
+	"Washtenaw County, MI"	"26161"	3072	365536	8.40	0.09%
+	"Wayne County, MI"	"26163"	20065	1751169	11.46	0.56%
+	"Unidentified Counties, MI"	"26999"	19812	2207597	8.97	0.55%
+	"Anoka County, MN"	"27003"	3923	372441	10.53	0.11%
+	"Dakota County, MN"	"27037"	4773	447440	10.67	0.13%
+	"Hennepin County, MN"	"27053"	13842	1258713	11.00	0.38%
+	"Olmsted County, MN"	"27109"	1905	164784	11.56	0.05%
+	"Ramsey County, MN"	"27123"	6365	536075	11.87	0.18%
+	"St. Louis County, MN"	"27137"	1687	200514	8.41	0.05%
+	"Scott County, MN"	"27139"	1577	155814	10.12	0.04%
+	"Stearns County, MN"	"27145"	1961	160977	12.18	0.05%
+	"Washington County, MN"	"27163"	2692	278936	9.65	0.07%
+	"Wright County, MN"	"27171"	1897	151150	12.55	0.05%
+	"Unidentified Counties, MN"	"27999"	21093	2011071	10.49	0.59%
+	"DeSoto County, MS"	"28033"	2304	193247	11.92	0.06%
+	"Harrison County, MS"	"28047"	2445	210612	11.61	0.07%
+	"Hinds County, MS"	"28049"	2605	214870	12.12	0.07%
+	"Jackson County, MS"	"28059"	1448	146389	9.89	0.04%
+	"Rankin County, MS"	"28121"	1825	160417	11.38	0.05%
+	"Unidentified Counties, MS"	"28999"	23832	2014155	11.83	0.66%
+	"Boone County, MO"	"29019"	1824	189463	9.63	0.05%
+	"Clay County, MO"	"29047"	2823	259772	10.87	0.08%
+	"Franklin County, MO"	"29071"	1125	106404	10.57	0.03%
+	"Greene County, MO"	"29077"	3155	304611	10.36	0.09%
+	"Jackson County, MO"	"29095"	8593	718560	11.96	0.24%
+	"Jasper County, MO"	"29097"	1573	125056	12.58	0.04%
+	"Jefferson County, MO"	"29099"	2368	231230	10.24	0.07%
+	"St. Charles County, MO"	"29183"	3969	416659	9.53	0.11%
+	"St. Louis County, MO"	"29189"	9700	987059	9.83	0.27%
+	"St. Louis city, MO"	"29510"	3242	281754	11.51	0.09%
+	"Unidentified Counties, MO"	"29999"	28751	2575588	11.16	0.80%
+	"Missoula County, MT"	"30063"	1007	121849	8.26	0.03%
+	"Yellowstone County, MT"	"30111"	1852	170843	10.84	0.05%
+	"Unidentified Counties, MT"	"30999"	8219	840120	9.78	0.23%
+	"Douglas County, NE"	"31055"	7762	589540	13.17	0.22%
+	"Lancaster County, NE"	"31109"	3623	326716	11.09	0.10%
+	"Sarpy County, NE"	"31153"	2351	199886	11.76	0.07%
+	"Unidentified Counties, NE"	"31999"	10375	862237	12.03	0.29%
+	"Clark County, NV"	"32003"	23771	2336573	10.17	0.66%
+	"Washoe County, NV"	"32031"	4844	498022	9.73	0.13%
+	"Unidentified Counties, NV"	"32999"	3179	359581	8.84	0.09%
+	"Hillsborough County, NH"	"33011"	4152	427354	9.72	0.12%
+	"Merrimack County, NH"	"33013"	1252	157103	7.97	0.03%
+	"Rockingham County, NH"	"33015"	2757	320689	8.60	0.08%
+	"Strafford County, NH"	"33017"	1117	133243	8.38	0.03%
+	"Unidentified Counties, NH"	"33999"	2658	363665	7.31	0.07%
+	"Atlantic County, NJ"	"34001"	2750	275213	9.99	0.08%
+	"Bergen County, NJ"	"34003"	8897	957736	9.29	0.25%
+	"Burlington County, NJ"	"34005"	4689	469167	9.99	0.13%
+	"Camden County, NJ"	"34007"	5907	527196	11.20	0.16%
+	"Cumberland County, NJ"	"34011"	1817	152326	11.93	0.05%
+	"Essex County, NJ"	"34013"	9805	851117	11.52	0.27%
+	"Gloucester County, NJ"	"34015"	2977	308423	9.65	0.08%
+	"Hudson County, NJ"	"34017"	8655	705472	12.27	0.24%
+	"Hunterdon County, NJ"	"34019"	1025	130183	7.87	0.03%
+	"Mercer County, NJ"	"34021"	4103	381671	10.75	0.11%
+	"Middlesex County, NJ"	"34023"	8364	863623	9.68	0.23%
+	"Monmouth County, NJ"	"34025"	6401	642799	9.96	0.18%
+	"Morris County, NJ"	"34027"	4929	514423	9.58	0.14%
+	"Ocean County, NJ"	"34029"	10523	659197	15.96	0.29%
+	"Passaic County, NJ"	"34031"	6272	513395	12.22	0.17%
+	"Somerset County, NJ"	"34035"	3301	348842	9.46	0.09%
+	"Sussex County, NJ"	"34037"	1433	146132	9.81	0.04%
+	"Union County, NJ"	"34039"	6714	572726	11.72	0.19%
+	"Warren County, NJ"	"34041"	1059	111252	9.52	0.03%
+	"Unidentified Counties, NJ"	"34999"	1380	159948	8.63	0.04%
+	"Bernalillo County, NM"	"35001"	6169	671586	9.19	0.17%
+	"Dona Ana County, NM"	"35013"	2505	225210	11.12	0.07%
+	"Sandoval County, NM"	"35043"	1260	155936	8.08	0.04%
+	"San Juan County, NM"	"35045"	1178	120675	9.76	0.03%
+	"Santa Fe County, NM"	"35049"	1086	155956	6.96	0.03%
+	"Unidentified Counties, NM"	"35999"	8753	785008	11.15	0.24%
+	"Albany County, NY"	"36001"	2695	316659	8.51	0.07%
+	"Bronx County, NY"	"36005"	16347	1356476	12.05	0.45%
+	"Broome County, NY"	"36007"	1700	196077	8.67	0.05%
+	"Chautauqua County, NY"	"36013"	1221	124891	9.78	0.03%
+	"Dutchess County, NY"	"36027"	2531	297150	8.52	0.07%
+	"Erie County, NY"	"36029"	8740	946147	9.24	0.24%
+	"Jefferson County, NY"	"36045"	1627	114787	14.17	0.05%
+	"Kings County, NY"	"36047"	33097	2561225	12.92	0.92%
+	"Monroe County, NY"	"36055"	7156	748482	9.56	0.20%
+	"Nassau County, NY"	"36059"	13463	1381715	9.74	0.37%
+	"New York County, NY"	"36061"	13533	1597451	8.47	0.38%
+	"Niagara County, NY"	"36063"	1837	209457	8.77	0.05%
+	"Oneida County, NY"	"36065"	2261	227555	9.94	0.06%
+	"Onondaga County, NY"	"36067"	4476	467873	9.57	0.12%
+	"Ontario County, NY"	"36069"	927	112494	8.24	0.03%
+	"Orange County, NY"	"36071"	5730	407470	14.06	0.16%
+	"Oswego County, NY"	"36075"	1122	118162	9.50	0.03%
+	"Queens County, NY"	"36081"	23944	2252196	10.63	0.67%
+	"Rensselaer County, NY"	"36083"	1520	159305	9.54	0.04%
+	"Richmond County, NY"	"36085"	4882	490687	9.95	0.14%
+	"Rockland County, NY"	"36087"	6612	340807	19.40	0.18%
+	"St. Lawrence County, NY"	"36089"	991	106940	9.27	0.03%
+	"Saratoga County, NY"	"36091"	1936	238711	8.11	0.05%
+	"Schenectady County, NY"	"36093"	1734	159902	10.84	0.05%
+	"Suffolk County, NY"	"36103"	15490	1523170	10.17	0.43%
+	"Tompkins County, NY"	"36109"	646	103558	6.24	0.02%
+	"Ulster County, NY"	"36111"	1368	182333	7.50	0.04%
+	"Westchester County, NY"	"36119"	9702	990817	9.79	0.27%
+	"Unidentified Counties, NY"	"36999"	16324	1838719	8.88	0.45%
+	"Alamance County, NC"	"37001"	1888	179165	10.54	0.05%
+	"Brunswick County, NC"	"37019"	1177	159964	7.36	0.03%
+	"Buncombe County, NC"	"37021"	2388	275901	8.66	0.07%
+	"Cabarrus County, NC"	"37025"	2665	240016	11.10	0.07%
+	"Catawba County, NC"	"37035"	1674	164645	10.17	0.05%
+	"Craven County, NC"	"37049"	1233	102391	12.04	0.03%
+	"Cumberland County, NC"	"37051"	5087	337890	15.06	0.14%
+	"Davidson County, NC"	"37057"	1801	174804	10.30	0.05%
+	"Durham County, NC"	"37063"	4068	336892	12.08	0.11%
+	"Forsyth County, NC"	"37067"	4386	392921	11.16	0.12%
+	"Gaston County, NC"	"37071"	2859	237242	12.05	0.08%
+	"Guilford County, NC"	"37081"	5756	549866	10.47	0.16%
+	"Harnett County, NC"	"37085"	1913	141477	13.52	0.05%
+	"Henderson County, NC"	"37089"	1006	119230	8.44	0.03%
+	"Iredell County, NC"	"37097"	2014	199710	10.08	0.06%
+	"Johnston County, NC"	"37101"	2858	241955	11.81	0.08%
+	"Mecklenburg County, NC"	"37119"	15106	1163701	12.98	0.42%
+	"New Hanover County, NC"	"37129"	2134	238852	8.93	0.06%
+	"Onslow County, NC"	"37133"	3670	213676	17.18	0.10%
+	"Orange County, NC"	"37135"	1162	150626	7.71	0.03%
+	"Pitt County, NC"	"37147"	2004	175119	11.44	0.06%
+	"Randolph County, NC"	"37151"	1601	147458	10.86	0.04%
+	"Robeson County, NC"	"37155"	1875	117365	15.98	0.05%
+	"Rowan County, NC"	"37159"	1582	151661	10.43	0.04%
+	"Union County, NC"	"37179"	2597	256452	10.13	0.07%
+	"Wake County, NC"	"37183"	12949	1190275	10.88	0.36%
+	"Wayne County, NC"	"37191"	1675	118686	14.11	0.05%
+	"Unidentified Counties, NC"	"37999"	30954	3057551	10.12	0.86%
+	"Cass County, ND"	"38017"	2376	196362	12.10	0.07%
+	"Unidentified Counties, ND"	"38999"	7271	587564	12.37	0.20%
+	"Allen County, OH"	"39003"	1205	100838	11.95	0.03%
+	"Ashtabula County, OH"	"39007"	971	96845	10.03	0.03%
+	"Butler County, OH"	"39017"	4197	393043	10.68	0.12%
+	"Clark County, OH"	"39023"	1637	134610	12.16	0.05%
+	"Clermont County, OH"	"39025"	2255	211972	10.64	0.06%
+	"Columbiana County, OH"	"39029"	882	100182	8.80	0.02%
+	"Cuyahoga County, OH"	"39035"	12701	1233088	10.30	0.35%
+	"Delaware County, OH"	"39041"	2120	231636	9.15	0.06%
+	"Fairfield County, OH"	"39045"	1665	165360	10.07	0.05%
+	"Franklin County, OH"	"39049"	17143	1326063	12.93	0.48%
+	"Greene County, OH"	"39057"	1721	169691	10.14	0.05%
+	"Hamilton County, OH"	"39061"	10099	827058	12.21	0.28%
+	"Lake County, OH"	"39085"	2082	231640	8.99	0.06%
+	"Licking County, OH"	"39089"	1827	183201	9.97	0.05%
+	"Lorain County, OH"	"39093"	3071	317910	9.66	0.09%
+	"Lucas County, OH"	"39095"	4540	425484	10.67	0.13%
+	"Mahoning County, OH"	"39099"	2272	225596	10.07	0.06%
+	"Medina County, OH"	"39103"	1637	184042	8.89	0.05%
+	"Miami County, OH"	"39109"	1109	110876	10.00	0.03%
+	"Montgomery County, OH"	"39113"	6094	533796	11.42	0.17%
+	"Portage County, OH"	"39133"	1323	162665	8.13	0.04%
+	"Richland County, OH"	"39139"	1312	125064	10.49	0.04%
+	"Stark County, OH"	"39151"	3968	372716	10.65	0.11%
+	"Summit County, OH"	"39153"	5293	535733	9.88	0.15%
+	"Trumbull County, OH"	"39155"	1907	200373	9.52	0.05%
+	"Warren County, OH"	"39165"	2416	252148	9.58	0.07%
+	"Wayne County, OH"	"39169"	1380	116510	11.84	0.04%
+	"Wood County, OH"	"39173"	1268	132650	9.56	0.04%
+	"Unidentified Counties, OH"	"39999"	28801	2685145	10.73	0.80%
+	"Canadian County, OK"	"40017"	2077	175829	11.81	0.06%
+	"Cleveland County, OK"	"40027"	2749	301193	9.13	0.08%
+	"Comanche County, OK"	"40031"	1541	121574	12.68	0.04%
+	"Oklahoma County, OK"	"40109"	10937	808866	13.52	0.30%
+	"Tulsa County, OK"	"40143"	8593	682868	12.58	0.24%
+	"Unidentified Counties, OK"	"40999"	22012	1963494	11.21	0.61%
+	"Clackamas County, OR"	"41005"	3725	423173	8.80	0.10%
+	"Deschutes County, OR"	"41017"	1802	208513	8.64	0.05%
+	"Douglas County, OR"	"41019"	962	112435	8.56	0.03%
+	"Jackson County, OR"	"41029"	2003	220768	9.07	0.06%
+	"Lane County, OR"	"41039"	2865	381181	7.52	0.08%
+	"Linn County, OR"	"41043"	1416	131496	10.77	0.04%
+	"Marion County, OR"	"41047"	3862	346741	11.14	0.11%
+	"Multnomah County, OR"	"41051"	6902	789698	8.74	0.19%
+	"Washington County, OR"	"41067"	5895	598865	9.84	0.16%
+	"Unidentified Counties, OR"	"41999"	8866	1020488	8.69	0.25%
+	"Adams County, PA"	"42001"	913	106748	8.55	0.03%
+	"Allegheny County, PA"	"42003"	11546	1224825	9.43	0.32%
+	"Beaver County, PA"	"42007"	1461	165631	8.82	0.04%
+	"Berks County, PA"	"42011"	4450	432821	10.28	0.12%
+	"Blair County, PA"	"42013"	1123	120273	9.34	0.03%
+	"Bucks County, PA"	"42017"	5545	645984	8.58	0.15%
+	"Butler County, PA"	"42019"	1712	198413	8.63	0.05%
+	"Cambria County, PA"	"42021"	1149	130668	8.79	0.03%
+	"Centre County, PA"	"42027"	1093	157795	6.93	0.03%
+	"Chester County, PA"	"42029"	5458	549784	9.93	0.15%
+	"Cumberland County, PA"	"42041"	2625	270738	9.70	0.07%
+	"Dauphin County, PA"	"42043"	3236	289234	11.19	0.09%
+	"Delaware County, PA"	"42045"	6029	576720	10.45	0.17%
+	"Erie County, PA"	"42049"	2376	267571	8.88	0.07%
+	"Fayette County, PA"	"42051"	1119	123915	9.03	0.03%
+	"Franklin County, PA"	"42055"	1710	157854	10.83	0.05%
+	"Lackawanna County, PA"	"42069"	1965	216123	9.09	0.05%
+	"Lancaster County, PA"	"42071"	6840	558589	12.25	0.19%
+	"Lebanon County, PA"	"42075"	1532	144252	10.62	0.04%
+	"Lehigh County, PA"	"42077"	3750	377754	9.93	0.10%
+	"Luzerne County, PA"	"42079"	3159	327388	9.65	0.09%
+	"Lycoming County, PA"	"42081"	1074	112724	9.53	0.03%
+	"Mercer County, PA"	"42085"	1014	108503	9.35	0.03%
+	"Monroe County, PA"	"42089"	1305	166053	7.86	0.04%
+	"Montgomery County, PA"	"42091"	8300	868742	9.55	0.23%
+	"Northampton County, PA"	"42095"	2747	319091	8.61	0.08%
+	"Philadelphia County, PA"	"42101"	18371	1550542	11.85	0.51%
+	"Schuylkill County, PA"	"42107"	1273	143786	8.85	0.04%
+	"Washington County, PA"	"42125"	1918	210232	9.12	0.05%
+	"Westmoreland County, PA"	"42129"	2819	351163	8.03	0.08%
+	"York County, PA"	"42133"	4642	464640	9.99	0.13%
+	"Unidentified Counties, PA"	"42999"	14697	1623127	9.05	0.41%
+	"Kent County, RI"	"44003"	1433	171278	8.37	0.04%
+	"Providence County, RI"	"44007"	6668	660615	10.09	0.19%
+	"Washington County, RI"	"44009"	808	129982	6.22	0.02%
+	"Unidentified Counties, RI"	"44999"	896	134087	6.68	0.02%
+	"Aiken County, SC"	"45003"	1907	177130	10.77	0.05%
+	"Anderson County, SC"	"45007"	2363	213076	11.09	0.07%
+	"Beaufort County, SC"	"45013"	1894	198979	9.52	0.05%
+	"Berkeley County, SC"	"45015"	3130	255217	12.26	0.09%
+	"Charleston County, SC"	"45019"	4857	424367	11.45	0.14%
+	"Dorchester County, SC"	"45035"	1991	169833	11.72	0.06%
+	"Florence County, SC"	"45041"	1564	137214	11.40	0.04%
+	"Greenville County, SC"	"45045"	6603	558036	11.83	0.18%
+	"Horry County, SC"	"45051"	3372	397478	8.48	0.09%
+	"Lexington County, SC"	"45063"	3136	309528	10.13	0.09%
+	"Pickens County, SC"	"45077"	1203	135495	8.88	0.03%
+	"Richland County, SC"	"45079"	4537	425138	10.67	0.13%
+	"Spartanburg County, SC"	"45083"	4413	356698	12.37	0.12%
+	"Sumter County, SC"	"45085"	1296	104165	12.44	0.04%
+	"York County, SC"	"45091"	3007	298320	10.08	0.08%
+	"Unidentified Counties, SC"	"45999"	12456	1212881	10.27	0.35%
+	"Minnehaha County, SD"	"46099"	2749	206930	13.28	0.08%
+	"Pennington County, SD"	"46103"	1367	115903	11.79	0.04%
+	"Unidentified Counties, SD"	"46999"	7085	596485	11.88	0.20%
+	"Blount County, TN"	"47009"	1294	141456	9.15	0.04%
+	"Davidson County, TN"	"47037"	10305	712334	14.47	0.29%
+	"Hamilton County, TN"	"47065"	4508	379864	11.87	0.13%
+	"Knox County, TN"	"47093"	5524	500669	11.03	0.15%
+	"Montgomery County, TN"	"47125"	3644	239872	15.19	0.10%
+	"Rutherford County, TN"	"47149"	4645	367101	12.65	0.13%
+	"Shelby County, TN"	"47157"	12073	910042	13.27	0.34%
+	"Sullivan County, TN"	"47163"	1502	162135	9.26	0.04%
+	"Sumner County, TN"	"47165"	2400	207994	11.54	0.07%
+	"Washington County, TN"	"47179"	1251	138420	9.04	0.03%
+	"Williamson County, TN"	"47187"	2159	264460	8.16	0.06%
+	"Wilson County, TN"	"47189"	1959	163674	11.97	0.05%
+	"Unidentified Counties, TN"	"47999"	31757	2938468	10.81	0.88%
+	"Bell County, TX"	"48027"	5923	393193	15.06	0.16%
+	"Bexar County, TX"	"48029"	26523	2087679	12.70	0.74%
+	"Brazoria County, TX"	"48039"	4617	398938	11.57	0.13%
+	"Brazos County, TX"	"48041"	2819	244703	11.52	0.08%
+	"Cameron County, TX"	"48061"	5831	426710	13.67	0.16%
+	"Collin County, TX"	"48085"	13116	1195359	10.97	0.36%
+	"Comal County, TX"	"48091"	2057	193928	10.61	0.06%
+	"Dallas County, TX"	"48113"	36922	2606358	14.17	1.03%
+	"Denton County, TX"	"48121"	11557	1007703	11.47	0.32%
+	"Ector County, TX"	"48135"	3011	164494	18.30	0.08%
+	"Ellis County, TX"	"48139"	2865	222829	12.86	0.08%
+	"El Paso County, TX"	"48141"	10731	869880	12.34	0.30%
+	"Fort Bend County, TX"	"48157"	9455	916778	10.31	0.26%
+	"Galveston County, TX"	"48167"	3891	361744	10.76	0.11%
+	"Grayson County, TX"	"48181"	1871	146907	12.74	0.05%
+	"Gregg County, TX"	"48183"	1600	126243	12.67	0.04%
+	"Guadalupe County, TX"	"48187"	2144	188454	11.38	0.06%
+	"Harris County, TX"	"48201"	65027	4835125	13.45	1.81%
+	"Hays County, TX"	"48209"	3382	280486	12.06	0.09%
+	"Hidalgo County, TX"	"48215"	13939	898471	15.51	0.39%
+	"Jefferson County, TX"	"48245"	3114	251496	12.38	0.09%
+	"Johnson County, TX"	"48251"	2647	202906	13.05	0.07%
+	"Kaufman County, TX"	"48257"	2920	185690	15.73	0.08%
+	"Lubbock County, TX"	"48303"	4001	320940	12.47	0.11%
+	"McLennan County, TX"	"48309"	3387	268583	12.61	0.09%
+	"Midland County, TX"	"48329"	3062	177108	17.29	0.09%
+	"Montgomery County, TX"	"48339"	8824	711354	12.40	0.25%
+	"Nueces County, TX"	"48355"	4196	352289	11.91	0.12%
+	"Parker County, TX"	"48367"	1959	173494	11.29	0.05%
+	"Potter County, TX"	"48375"	1516	114647	13.22	0.04%
+	"Randall County, TX"	"48381"	1675	148255	11.30	0.05%
+	"Smith County, TX"	"48423"	3080	245209	12.56	0.09%
+	"Tarrant County, TX"	"48439"	27600	2182947	12.64	0.77%
+	"Taylor County, TX"	"48441"	1991	146836	13.56	0.06%
+	"Tom Green County, TX"	"48451"	1505	119057	12.64	0.04%
+	"Travis County, TX"	"48453"	16212	1334961	12.14	0.45%
+	"Webb County, TX"	"48479"	4407	269148	16.37	0.12%
+	"Wichita County, TX"	"48485"	1489	130180	11.44	0.04%
+	"Williamson County, TX"	"48491"	8441	697191	12.11	0.23%
+	"Unidentified Counties, TX"	"48999"	58638	4905028	11.95	1.63%
+	"Cache County, UT"	"49005"	1968	142393	13.82	0.05%
+	"Davis County, UT"	"49011"	4697	373207	12.59	0.13%
+	"Salt Lake County, UT"	"49035"	14211	1185813	11.98	0.40%
+	"Utah County, UT"	"49049"	12050	719174	16.76	0.34%
+	"Washington County, UT"	"49053"	2356	202452	11.64	0.07%
+	"Weber County, UT"	"49057"	3327	271926	12.23	0.09%
+	"Unidentified Counties, UT"	"49999"	6410	522769	12.26	0.18%
+	"Chittenden County, VT"	"50007"	1333	169481	7.87	0.04%
+	"Unidentified Counties, VT"	"50999"	3732	477983	7.81	0.10%
+	"Arlington County, VA"	"51013"	2302	234162	9.83	0.06%
+	"Chesterfield County, VA"	"51041"	4051	383876	10.55	0.11%
+	"Fairfax County, VA"	"51059"	12063	1141878	10.56	0.34%
+	"Henrico County, VA"	"51087"	3578	334760	10.69	0.10%
+	"Loudoun County, VA"	"51107"	4585	436347	10.51	0.13%
+	"Prince William County, VA"	"51153"	6111	489640	12.48	0.17%
+	"Spotsylvania County, VA"	"51177"	1649	149588	11.02	0.05%
+	"Stafford County, VA"	"51179"	1820	165428	11.00	0.05%
+	"Alexandria city, VA"	"51510"	2192	155230	14.12	0.06%
+	"Chesapeake city, VA"	"51550"	2734	253886	10.77	0.08%
+	"Hampton city, VA"	"51650"	1445	137098	10.54	0.04%
+	"Newport News city, VA"	"51700"	2377	183118	12.98	0.07%
+	"Norfolk city, VA"	"51710"	2948	230930	12.77	0.08%
+	"Richmond city, VA"	"51760"	2873	229247	12.53	0.08%
+	"Virginia Beach city, VA"	"51810"	4837	453649	10.66	0.13%
+	"Unidentified Counties, VA"	"51999"	37084	3736861	9.92	1.03%
+	"Benton County, WA"	"53005"	2463	215219	11.44	0.07%
+	"Clark County, WA"	"53011"	5487	521150	10.53	0.15%
+	"Cowlitz County, WA"	"53015"	1203	112864	10.66	0.03%
+	"King County, WA"	"53033"	22442	2271380	9.88	0.62%
+	"Kitsap County, WA"	"53035"	2691	277658	9.69	0.07%
+	"Pierce County, WA"	"53053"	10450	928696	11.25	0.29%
+	"Skagit County, WA"	"53057"	1354	131417	10.30	0.04%
+	"Snohomish County, WA"	"53061"	9876	844761	11.69	0.27%
+	"Spokane County, WA"	"53063"	5706	551455	10.35	0.16%
+	"Thurston County, WA"	"53067"	2840	299003	9.50	0.08%
+	"Whatcom County, WA"	"53073"	1939	231919	8.36	0.05%
+	"Yakima County, WA"	"53077"	3127	256643	12.18	0.09%
+	"Unidentified Counties, WA"	"53999"	11354	1170715	9.70	0.32%
+	"Berkeley County, WV"	"54003"	1523	132440	11.50	0.04%
+	"Kanawha County, WV"	"54039"	1640	174805	9.38	0.05%
+	"Unidentified Counties, WV"	"54999"	13443	1462826	9.19	0.37%
+	"Brown County, WI"	"55009"	2951	271417	10.87	0.08%
+	"Dane County, WI"	"55025"	5548	575347	9.64	0.15%
+	"Fond du Lac County, WI"	"55039"	1032	103948	9.93	0.03%
+	"Kenosha County, WI"	"55059"	1687	167488	10.07	0.05%
+	"La Crosse County, WI"	"55063"	1107	120486	9.19	0.03%
+	"Marathon County, WI"	"55073"	1414	138612	10.20	0.04%
+	"Milwaukee County, WI"	"55079"	11550	916205	12.61	0.32%
+	"Outagamie County, WI"	"55087"	1994	193234	10.32	0.06%
+	"Racine County, WI"	"55101"	2028	196613	10.31	0.06%
+	"Rock County, WI"	"55105"	1769	164278	10.77	0.05%
+	"Sheboygan County, WI"	"55117"	1097	117752	9.32	0.03%
+	"Walworth County, WI"	"55127"	907	105822	8.57	0.03%
+	"Washington County, WI"	"55131"	1286	138168	9.31	0.04%
+	"Waukesha County, WI"	"55133"	3644	412591	8.83	0.10%
+	"Winnebago County, WI"	"55139"	1704	171735	9.92	0.05%
+	"Unidentified Counties, WI"	"55999"	20036	2117259	9.46	0.56%
+	"Unidentified Counties, WY"	"56999"	5990	584057	10.26	0.17%
+"Total"			3596017	334914895	10.74	100.00%
+"---"
+"Dataset: Natality, 2016-2023 expanded"
+"Query Parameters:"
+"Year: 2023"
+"Group By: County of Residence"
+"Show Totals: True"
+"Show Zero Values: False"
+"Show Suppressed: False"
+"Calculate Rates Per: 1,000"
+"---"
+"Help: See http://wonder.cdc.gov/wonder/help/Natality-expanded.html for more information."
+"---"
+"Query Date: Nov 12, 2024 1:57:31 PM"
+"---"
+"Suggested Citation: Centers for Disease Control and Prevention, National Center for Health Statistics. National Vital Statistics"
+"System, Natality on CDC WONDER Online Database. Data are from the Natality Records 2016-2023, as compiled from data provided by"
+"the 57 vital statistics jurisdictions through the Vital Statistics Cooperative Program. Accessed at"
+"http://wonder.cdc.gov/natality-expanded-current.html on Nov 12, 2024 1:57:31 PM"
+"---"
+Messages:
+"1. Rows with zero Births are hidden, but the Total Population values in those rows are included in the totals. Use Quick Options"
+"above to show zero rows."
+"---"
+Caveats:
+"1. 'Not Available' appears when the denominator population for a rate measure is not available."
+"2. Each birth record represents one liveborn infant."
+"3. County-level data are shown only for counties with populations of 100,000 persons or more. Within each state, data for all"
+"counties with fewer than 100,000 persons are combined together under the label ""Unidentified Counties."""
+"4. Birth rates are calculated as the number of births divided by total population in the given year(s). When the numerator is"
+"sub-set by mother's race, mother's hispanicity, location, or year of birth, then the same sub-set for age, race, hispanicity,"
+"location and year applies to the denominator population."
+"5. Please note that the Percent of Total presented here may not be consistent with percentages published by NCHS. NCHS excludes"
+"births categorized as ""Unknown"", ""Not Stated"", and ""Not on Certificate"" from the denominator when calculating percentages."
+"6. Connecticut population data for 2022-2023 are reported in the ""Unidentified counties"" row because population estimates for"
+"Connecticut legacy counties are not available for 2022-2023. Birth and Fertility rate are not available for 2022-2023 because"
+"legacy Connecticut counties population estimates are not available."
+"7. Birth rates and fertility rates are calculated using the following populations: The populations for year 2023 are from the"
+"postcensal single race series of July 1st estimates of the resident population, released by Census Bureau on June 27, 2024. The"
+"2023 population estimates are based on the Blended Base produced by the US Census Bureau in lieu of the April 1, 2020 decennial"
+"population count. The populations for year 2022 are from the postcensal single race series of July 1st estimates of the resident"
+"population, released by Census Bureau on June 22, 2023. The 2022 population estimates are based on the Blended Base produced by"
+"the US Census Bureau in lieu of the April 1, 2020 decennial population count. The populations for year 2021 are from the"
+"postcensal single race series of July 1st estimates of the resident population, released by Census Bureau on June 30, 2022. The"
+"2021 population estimates are based on the Blended Base produced by the US Census Bureau in lieu of the April 1, 2020 decennial"
+"population count. The populations for year 2020 are from the postcensal single race series of July 1st estimates of the resident"
+"population, released by Census Bureau on July 27, 2021. The populations for year 2019 are from the postcensal single race series"
+"of July 1st estimates of the resident population, released by Census Bureau on June 25, 2020; The populations for year 2018 are"
+"from the postcensal single race series of July 1st estimates of the resident population, released by Census Bureau on June 21,"
+"2019; The populations for year 2017 are from the postcensal single race series of July 1st estimates of the resident population,"
+"released by Census Bureau on June 21, 2018; The populations for year 2016 are from the postcensal single race series of July 1st"
+"estimates of the resident population, released by Census Bureau on June 22, 2017. More information:"
+"http://wonder.cdc.gov/wonder/help/Natality-expanded.html#Denominator-Population-Sources."
+"8. The independent city of Baltimore, Maryland (FIPS code 24510) is reported separately from Baltimore County (FIPS code 24005)."
+"9. The independent city of St. Louis, Missouri (FIPS code 29510) is reported separately from St. Louis County (FIPS code 29189)."
+"10. Bronx, New York (FIPS code 36005) represents Bronx Borough, New York City."
+"11. Kings County, New York (FIPS code 36047) represents Brooklyn Borough, New York City."
+"12. New York County, New York (FIPS code 36061) represents Manhattan Borough, New York City."
+"13. Queens, New York (FIPS code 36081) represents Queens Borough, New York City."
+"14. Richmond County, New York (FIPS code 36085) represents Staten Island Borough, New York City."
