@@ -1,7 +1,7 @@
 ---
-title: "Your Title"
+title: "Regional Analysis of Preterm Birth Characteristics""
 subtitle: "BMIN503/EPID600 Final Project"
-author: "FirstName LastName"
+author: "Rose Albert"
 format: html
 editor: visual
 number-sections: true
@@ -10,15 +10,21 @@ embed-resources: true
 
 ------------------------------------------------------------------------
 
-Use this template to complete your project throughout the course. Your Final Project presentation will be based on the contents of this document. Replace the title/name above and text below with your own, but keep the headers. Feel free to change the theme and other display settings, although this is not required. I added a new sentence
+# Interrogating sex as a biological variable in county-level preterm birth inequity
+
+December 13, 2024
+
+By Rose Albert
 
 ## Overview {#sec-overview}
 
-Give a brief a description of your project and its goal(s), what data you are using to complete it, and what two faculty/staff in different fields you have spoken to about your project with a brief summary of what you learned from each person. Include a link to your final project GitHub repository.
+Preterm birth affects approximately 10% of all births and contributes to neonatal mortality and morbidity. There is a well-established male vulnerability and female resilience during the neonatal period. The goal of this project is to interrogate sex as a biological variable at the county-level using CDC Wonder Natality Data and identify sex-differences in preterm birth and NICU admission. I have spoken with Dr. Aimin Chen and Dr. Heather Burris about biological and structural determinants contributing to preterm birth inequity, as well as potential areas of clinical, public health, and policy intervention. The data for this project can be found in my final project GitHub repository.
 
 ## Introduction {#sec-introduction}
 
-Describe the problem addressed, its significance, and some background to motivate the problem. This should extend what is in the @sec-overview.
+Preterm birth can predispose infants to immediate risks in the neonatal as well as long-term adverse sequelae. For example, preterm infants are born with underdeveloped lungs and often require therapeutic interventions such as surfactant administration, antibiotics, steroids, mechanical ventilation, and supplemental oxygen for survival. However, these therapeutics can also pose postnatal insults and contribute to lung injury and disease such as bronchopulmonary dysplasia.
+
+There is a well-established male vulnerability in the neonatal period wherein male neonates have higher infant mortality and
 
 Explain why your problem is interdisciplinary, what fields can contribute to its understanding, and incorporate background related to what you learned from meeting with faculty/staff.
 
@@ -27,6 +33,16 @@ Explain why your problem is interdisciplinary, what fields can contribute to its
 Describe the data used and general methodological approach used to address the problem described in the @sec-introduction. Subsequently, incorporate full R code necessary to retrieve and clean data, and perform analysis. Be sure to include a description of code so that others (including your future self) can understand what you are doing and why.
 
 ## Results {#sec-results}
+
+```{r}
+library(dplyr)
+
+
+# For a tab-delimited text file (common format for CDC data):
+data <- read.delim("https://raw.githubusercontent.com/rosemalbert/BMIN503_Final_Project/refs/heads/master/Natality%2C%202016-2023%20expanded_sex.txt")
+glimpse(data)
+
+```
 
 Describe your results and include relevant tables, plots, and code/comments used to obtain them. You may refer to the @sec-methods as needed. End with a brief conclusion of your findings related to the question you set out to address. You can include references if you'd like, but this is not required.
 
