@@ -1,5 +1,5 @@
 ---
-title: "Regional Analysis of Preterm Birth Characteristics""
+title: "Regional Analysis of Preterm Birth Characteristics"
 subtitle: "BMIN503/EPID600 Final Project"
 author: "Rose Albert"
 format: html
@@ -24,7 +24,7 @@ The data for this project can be found in my [final project GitHub repository](h
 
 ## Introduction {#sec-introduction}
 
-Preterm birth can predispose infants to immediate risks in the neonatal period as well as long-term adverse sequelae. For example, preterm infants are born with underdeveloped lungs and often require therapeutic interventions such as surfactant administration, antibiotics, steroids, mechanical ventilation, and supplemental oxygen for survival. However, these therapeutics can also pose postnatal insults and contribute to lung injury and disease such as bronchopulmonary dysplasia.
+Preterm birth can predispose infants to immediate risks in the neonatal period as well as long-term adverse sequelae. For example, preterm infants are born with underdeveloped lungs and often require therapeutic interventions such as surfactant administration, antibiotics, steroids, mechanical ventilation, and supplemental oxygen for survival. However, these therapeutics can also pose postnatal insults and contribute to lung injury and diseases such as bronchopulmonary dysplasia.
 
 Interrogation of sex as a biological variable has received increasing attention as a critical area for understanding basic pathophysiology and differential response to therapeutics. Male sex is an independent risk factor for numerous pediatric diseases and diseases of prematurity. This project will investigate male susceptibility to preterm birth and NICU admission at the county-level. An understanding of preterm birth characteristics can inform local public health interventions.
 
@@ -34,7 +34,7 @@ Interrogation of sex as a biological variable has received increasing attention 
 
 *County-level Birth Characteristics Data Source:* I am using the [CDC Wonder Natality Data](https://wonder.cdc.gov/wonder/help/Natality-expanded.html#) (2023) grouped by "County of Residence," "Sex of Infant," "NICU Admission," and "OE Gestational Age Recode 10," with the measures "Births" and "Percent of Total Births."
 
-*Mapping Data Source:* I am drawing from Assignment 5 to use geospatial data, tidy census, and leaflet to generate interactive maps.
+*Mapping Data Source:* I am drawing from Assignment 5 to use geospatial data, tidy census, and leaflet to generate interactive maps.update.packages("tidycensus")
 
 ```{r}
 #load necessary libraries
@@ -51,32 +51,259 @@ birth_data <- read.delim("https://raw.githubusercontent.com/rosemalbert/BMIN503_
 
 county_data <- read.delim("https://raw.githubusercontent.com/rosemalbert/BMIN503_Final_Project/refs/heads/master/Natality%2C%202016-2023%20expanded%20_county.txt")
 
-#view column names 
+#view column names
 colnames(birth_data)
 colnames(county_data)
 
 #merge birth_data and county_data
+merged_data <- left_join(birth_data, county_data, by = "County.of.Residence.Code")
 
-#calculate birth rate for each characteristic and add as a column 
+#clean merged_data 
+library(dplyr)
+
+# clean merged data by removing unnecessary columns, checking discrepancies, and renaming
+cleaned_data <- merged_data %>%
+    # Remove 'Notes.x' column
+    select(-Notes.x) %>%
+    
+    # Check for discrepancies between 'County.of.Residence.x' and 'County.of.Residence.y'
+    # 
+    mutate(
+        County.of.Residence = ifelse(
+            County.of.Residence.x == County.of.Residence.y, 
+            County.of.Residence.x, 
+            NA  
+        )
+    ) %>%
+    
+    # Merge 'County.of.Residence.x' and 'County.of.Residence.y'
+    select(-County.of.Residence.x, -County.of.Residence.y) %>%
+    
+    # Rename 'Births.y' to 'Total.Births'
+    rename(
+        Total.Births = Births.y
+    ) %>%
+    
+    # Remove 'Notes.y' column
+    select(-Notes.y) %>%
+  
+    # Remove sex of infant code
+    select(-Sex.of.Infant.Code) %>%
+    
+    # Remove 'X..of.Total.Births.y' and 'X..of.Total.Births.x'
+    select(-c(X..of.Total.Births.x, X..of.Total.Births.y)) %>%
+  
+   # Remove 'OE.Gestational.Age.Recode.10.Code'
+    select(-OE.Gestational.Age.Recode.10.Code) %>%
+  
+   # Remove 'NICU.Admission.Code'
+    select(-NICU.Admission.Code) %>%
+  
+    # Filter out rows where 'NICU.Admission' or 'OE.Gestational.Age.Recode.10' are "Unknown"
+    filter(
+        !NICU.Admission %in% c("Unknown or Not Stated", ""),
+        !OE.Gestational.Age.Recode.10 %in% c("Unknown or Not Stated", "")
+    ) %>%
+    
+    # Remove any duplicates
+    distinct()
+
+cleaned_data <- cleaned_data %>%
+  mutate(County.of.Residence.Code = as.character(County.of.Residence.Code))
+
+# View cleaned data
+head(cleaned_data)
+
+# Convert 'County.of.Residence.Code' to character before merging
+preterm_rate_data <- cleaned_data %>%
+   mutate(
+        Is.Preterm = OE.Gestational.Age.Recode.10 %in% c("28 - 31 weeks", "32 - 35 weeks", "36 weeks", "20 - 27 weeks", "Under 20 weeks"),
+        County.of.Residence.Code = as.character(County.of.Residence.Code)  # Convert to character
+    ) %>%
+   group_by(County.of.Residence, County.of.Residence.Code) %>%  # Keep 'County.of.Residence.Code' in the group_by
+    summarise(
+        Total.Births = sum(Total.Births, na.rm = TRUE),
+        Preterm.Births = sum(ifelse(Is.Preterm, Births.x, 0), na.rm = TRUE),
+        Preterm.Birth.Rate = (Preterm.Births / Total.Births) * 100
+    ) %>%
+   ungroup()
+
+# View the result to ensure 'County.of.Residence.Code' is retained
+head(preterm_rate_data)
 
 #load census shapefile data and merge by county FIPs 
+counties_sf <- counties(cb = TRUE, resolution = "20m") # cb = TRUE for a simplified geometry
+
+# Merge the cleaned data with the counties shapefile
+county_map_preterm_data <- left_join(counties_sf, preterm_rate_data, by = c("GEOID" = "County.of.Residence.Code"))
+
+county_map_cleaned_data <- left_join(counties_sf, cleaned_data, by = c("GEOID" = "County.of.Residence.Code"))
+
+# Integrate with US Census Data
+
+
 ```
 
 [*Analysis plan*]{.underline}
 
-*Exploratory analysis of data:* Generate county-level choropleth maps of birth rates (births/total population for each county). Generate county-level choropleth maps of preterm birth rates (\<37 gestational age births/total population). Generate sex-stratified maps of preterm birth rates. Generate sex-stratified choropleth maps of NICU admissions by county. Generate bar graphs showing NICU admission rates by sex and sex distribution of gestational age groups.
+*Exploratory analysis of data:* Generate county-level choropleth maps of birth rates ((births/total population)\*1000 for each county). Generate county-level choropleth maps of preterm birth rates (\<37 gestational age births/total population). Generate sex-stratified maps of preterm birth rates. Generate sex-stratified choropleth maps of NICU admissions by county. Generate bar graphs showing NICU admission rates by sex and sex distribution of gestational age groups.
 
 *Data analysis:* Conduct 2-way ANOVA to determine if sex as a biological variable is a significant predictor of NICU admission. Identify counties with highest and lowest preterm birth rates, and the highest and lowest NICU admission rates.
 
 ## Results {#sec-results}
 
+First, I developed a county-level choropleth maps of birth rates (live births per 1000 people) for counties that did not have any missing data. The below map represents 496 counties. Rockland County, NY has the highest birth rate (19.4 per 1000 people) while Charlotte County, FL has the lowest birth rate (4.99 per 1000 people).
+
 ```{r}
-library(dplyr)
+#load necessary libraries
+library(tidyverse)
+library(sf)
+library(tidycensus)
+library(ggspatial)
+library(leaflet)
+library(cowplot)
+library(nhanesA)
+library(haven)
+library(viridis)
+
+# Convert Birth.Rate to numeric (if necessary)
+county_map_cleaned_data$Birth.Rate <- as.numeric(county_map_cleaned_data$Birth.Rate)
+
+# Recheck the structure of the column
+str(county_map_cleaned_data$Birth.Rate)
+
+# Remove rows where Birth.Rate is NA
+county_map_cleaned_data <- county_map_cleaned_data %>%
+  filter(!is.na(Birth.Rate))
+
+#load map theme
+map_theme <- function() {
+  theme_minimal() +  
+    theme(
+      axis.line = element_blank(), 
+      axis.text = element_blank(),  
+      axis.title = element_blank(),
+      panel.grid = element_line(color = "white"), 
+      legend.key.size = unit(0.8, "cm"),     
+      legend.text = element_text(size = 16),   
+      legend.title = element_text(size = 16)
+    )
+}
+
+#create my palette
+myPalette <- colorRampPalette(viridis(100))
+
+# Generate the choropleth map for birth rates
+birth_rates_map <- ggplot(data = county_map_cleaned_data) +
+  geom_sf(aes(fill = Birth.Rate)) +  # Map Preterm Birth Rate to the fill
+  map_theme() +  # Apply the custom theme
+  ggtitle("2023 Birth Rate (live births per 1000 people)") +
+  scale_fill_gradientn(name = "Birth Rate\nrate", colours = myPalette(100))
+  coord_sf(xlim = c(-79.5, -75), ylim = c(37, 39))
+
+# Print the map
+print(birth_rates_map)
+
+#How many counties are represented in this analysis?
+num_unique_geoid_counties <- length(unique(county_map_cleaned_data$GEOID))
+print(num_unique_geoid_counties)
+
+#Which counties have the highest and lowest birth rates?
+# Find the county with the highest Birth Rate and its value (show only the first entry)
+highest_birth_rate <- county_map_cleaned_data %>%
+  filter(Birth.Rate == max(Birth.Rate, na.rm = TRUE)) %>%
+  slice(1)  # Select the first row
+
+cat("County with the highest Birth Rate: ", highest_birth_rate$County.of.Residence, "\n")
+cat("Highest Birth Rate: ", highest_birth_rate$Birth.Rate, "\n")
+# Find the county with the lowest Birth Rate and its value (show only the first entry)
+lowest_birth_rate <- county_map_cleaned_data %>%
+  filter(Birth.Rate == min(Birth.Rate, na.rm = TRUE)) %>%
+  slice(1)  # Select the first row
+
+cat("County with the lowest Birth Rate: ", lowest_birth_rate$County.of.Residence, "\n")
+cat("Lowest Birth Rate: ", lowest_birth_rate$Birth.Rate, "\n")
 
 
-# For a tab-delimited text file (common format for CDC data):
-data <- read.delim("https://raw.githubusercontent.com/rosemalbert/BMIN503_Final_Project/refs/heads/master/Natality%2C%202016-2023%20expanded_sex.txt")
-glimpse(data)
+```
+
+To better visualize and explore the birth rates, I then generated an interactive choropleth map of birth rates by county.
+
+```{r}
+#generate interactive choropleth map 
+library(leaflet)
+library(RColorBrewer)
+
+# Define the color scale for the Birth Rate using colorBin
+pal_fun <- colorBin(palette = brewer.pal(9, "YlOrRd")[c(1:5, 7)], 
+                    bins = c(0, 5, 10, 15, 20, 25), 
+                    reverse = FALSE)
+
+# Create the popup message for each county
+pu_message <- paste0(county_map_cleaned_data$County.of.Residence, 
+                     "<br>Birth Rate: ",      
+                     round(county_map_cleaned_data$Birth.Rate, 1), " live births per 1000 people")
+
+# Create the leaflet map with the polygons
+leaflet(county_map_cleaned_data) |>
+  addPolygons(stroke = FALSE,               
+              fillColor = ~pal_fun(Birth.Rate),
+              fillOpacity = 0.7, smoothFactor = 0.5,
+              popup = pu_message) |>   
+  addProviderTiles(providers$CartoDB.Positron) |>   
+  addLegend("bottomright",               
+            pal = pal_fun,              
+            values = ~Birth.Rate,  
+            title = 'Birth Rate',    
+            opacity = 1) |>             
+  addScaleBar()
+
+```
+
+I repeated the analysis to generate county-level choropleth maps of preterm birth rates (\<37 gestational age births/total number of live births).
+
+```{r}
+
+# Convert Preterm.Birth.Rate to numeric
+county_map_preterm_data$Preterm.Birth.Rate <- as.numeric(county_map_preterm_data$Preterm.Birth.Rate)
+
+# Recheck the structure of the column
+str(county_map_preterm_data$Preterm.Birth.Rate)
+
+# Remove rows where Birth.Rate is NA
+county_map_preterm_data <- county_map_preterm_data %>%
+  filter(!is.na(Preterm.Birth.Rate))
+
+# Generate the choropleth map for preterm birth rates
+pretetrm_birth_rates_map <- ggplot(data = county_map_preterm_data) +
+  geom_sf(aes(fill = Preterm.Birth.Rate)) +  # Map Preterm Birth Rate to the fill
+  map_theme() +  # Apply the custom theme
+  ggtitle("2023 Preterm Birth Rate % (<37 gestational age births/total number of live births)") +
+  scale_fill_gradientn(name = "Preterm Birth Rate\nrate", colours = myPalette(100))
+  coord_sf(xlim = c(-79.5, -75), ylim = c(37, 39))
+  
+pretetrm_birth_rates_map
+
+#How many counties are represented in this analysis?
+num_unique_geoid_counties_preterm <- length(unique(county_map_preterm_data$GEOID))
+print(num_unique_geoid_counties_preterm)
+  
+
+#Which counties have the highest and lowest preterm birth rates?
+# Find the county with the highest preterm Birth Rate and its value (show only the first entry)
+highest_preterm_birth_rate <- county_map_preterm_data %>%
+  filter(Preterm.Birth.Rate == max(Preterm.Birth.Rate, na.rm = TRUE)) %>%
+  slice(1)  # Select the first row
+
+cat("County with the highest preterm Birth Rate: ", highest_preterm_birth_rate$County.of.Residence, "\n")
+cat("Highest preterm Birth Rate: ", highest_preterm_birth_rate$Preterm.Birth.Rate, "\n")
+# Find the county with the lowest preterm Birth Rate and its value (show only the first entry)
+lowest_preterm_birth_rate <- county_map_preterm_data %>%
+  filter(Preterm.Birth.Rate == min(Preterm.Birth.Rate, na.rm = TRUE)) %>%
+  slice(1)  # Select the first row
+
+cat("County with the lowest preterm Birth Rate: ", lowest_preterm_birth_rate$County.of.Residence, "\n")
+cat("Lowest preterm Birth Rate: ", lowest_preterm_birth_rate$Preterm.Birth.Rate, "\n")
 
 ```
 
