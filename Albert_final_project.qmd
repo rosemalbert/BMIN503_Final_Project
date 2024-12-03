@@ -122,7 +122,6 @@ preterm_rate_data <- cleaned_data %>%
     ) %>%
    group_by(County.of.Residence, County.of.Residence.Code) %>%  # Keep 'County.of.Residence.Code' in the group_by
     summarise(
-        Total.Births = sum(Total.Births, na.rm = TRUE),
         Preterm.Births = sum(ifelse(Is.Preterm, Births.x, 0), na.rm = TRUE),
         Preterm.Birth.Rate = (Preterm.Births / Total.Births) * 100
     ) %>%
