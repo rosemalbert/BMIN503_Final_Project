@@ -138,8 +138,52 @@ county_map_preterm_data <- left_join(counties_sf, preterm_rate_data, by = c("GEO
 
 county_map_cleaned_data <- left_join(counties_sf, cleaned_data, by = c("GEOID" = "County.of.Residence.Code"))
 
-# Integrate with US Census Data
+# Ensure the 'Sex.of.Infant' column is available and that it's a factor or character
+cleaned_data$Sex.of.Infant <- as.factor(cleaned_data$Sex.of.Infant)
 
+
+
+
+```
+
+Create data frame for sex-stratified analysis.
+
+```{r}
+# Create a new data frame stratified by sex
+preterm_sex_data <- cleaned_data %>%
+  mutate(
+    Is.Preterm = OE.Gestational.Age.Recode.10 %in% c("28 - 31 weeks", "32 - 35 weeks", "36 weeks", "20 - 27 weeks", "Under 20 weeks"),
+    County.of.Residence.Code = as.character(County.of.Residence.Code)  # Convert to character
+  ) %>%
+  group_by(County.of.Residence, County.of.Residence.Code, Sex.of.Infant) %>%
+  summarise(
+    Preterm.Births = sum(ifelse(Is.Preterm, Births.x, 0), na.rm = TRUE),
+    Preterm.Birth.Rate = (Preterm.Births / Total.Births) * 100
+  ) %>%
+  ungroup()
+
+# View the new data frame
+head(preterm_sex_data)
+
+```
+
+```{r}
+# Assuming ELGANS is defined as less than 28 weeks of gestational age
+preterm_sex_data_elgans <- cleaned_data %>%
+  mutate(
+    Is.Preterm = OE.Gestational.Age.Recode.10 %in% c("28 - 31 weeks", "32 - 35 weeks", "36 weeks", "20 - 27 weeks", "Under 20 weeks"),
+    ELGANS = ifelse(OE.Gestational.Age.Recode.10 %in% c("Under 20 weeks", "20 - 27 weeks"), "ELGANS", "Not ELGANS"),  # ELGANS is <28 weeks
+    County.of.Residence.Code = as.character(County.of.Residence.Code)  # Convert to character
+  ) %>%
+  group_by(County.of.Residence, County.of.Residence.Code, Sex.of.Infant, ELGANS) %>%
+  summarise(
+    Preterm.Births = sum(ifelse(Is.Preterm, Births.x, 0), na.rm = TRUE),
+    Preterm.Birth.Rate = (Preterm.Births / Total.Births) * 100
+  ) %>%
+  ungroup()
+
+# View the new stratified data frame
+head(preterm_sex_data_elgans)
 
 ```
 
@@ -151,7 +195,7 @@ county_map_cleaned_data <- left_join(counties_sf, cleaned_data, by = c("GEOID" =
 
 ## Results {#sec-results}
 
-First, I developed a county-level choropleth maps of birth rates (live births per 1000 people) for counties that did not have any missing data. The below map represents 496 counties. Rockland County, NY has the highest birth rate (19.4 per 1000 people) while Charlotte County, FL has the lowest birth rate (4.99 per 1000 people).
+First, I developed a county-level choropleth maps of birth rates (live births per 1000 people) for counties that did not have any missing data. The below map represents 496 counties.
 
 ```{r}
 #load necessary libraries
@@ -216,12 +260,19 @@ highest_birth_rate <- county_map_cleaned_data %>%
 cat("County with the highest Birth Rate: ", highest_birth_rate$County.of.Residence, "\n")
 cat("Highest Birth Rate: ", highest_birth_rate$Birth.Rate, "\n")
 # Find the county with the lowest Birth Rate and its value (show only the first entry)
+
 lowest_birth_rate <- county_map_cleaned_data %>%
   filter(Birth.Rate == min(Birth.Rate, na.rm = TRUE)) %>%
   slice(1)  # Select the first row
 
 cat("County with the lowest Birth Rate: ", lowest_birth_rate$County.of.Residence, "\n")
 cat("Lowest Birth Rate: ", lowest_birth_rate$Birth.Rate, "\n")
+
+# Calculate the average Birth Rate
+average_birth_rate <- county_map_cleaned_data %>%
+  summarise(Average_Birth_Rate = mean(Birth.Rate, na.rm = TRUE))
+
+cat("Average Birth Rate: ", average_birth_rate$Average_Birth_Rate, "\n")
 
 
 ```
@@ -274,14 +325,14 @@ county_map_preterm_data <- county_map_preterm_data %>%
   filter(!is.na(Preterm.Birth.Rate))
 
 # Generate the choropleth map for preterm birth rates
-pretetrm_birth_rates_map <- ggplot(data = county_map_preterm_data) +
+preterm_birth_rates_map <- ggplot(data = county_map_preterm_data) +
   geom_sf(aes(fill = Preterm.Birth.Rate)) +  # Map Preterm Birth Rate to the fill
   map_theme() +  # Apply the custom theme
   ggtitle("2023 Preterm Birth Rate % (<37 gestational age births/total number of live births)") +
   scale_fill_gradientn(name = "Preterm Birth Rate\nrate", colours = myPalette(100))
   coord_sf(xlim = c(-79.5, -75), ylim = c(37, 39))
   
-pretetrm_birth_rates_map
+preterm_birth_rates_map
 
 #How many counties are represented in this analysis?
 num_unique_geoid_counties_preterm <- length(unique(county_map_preterm_data$GEOID))
@@ -304,6 +355,239 @@ lowest_preterm_birth_rate <- county_map_preterm_data %>%
 cat("County with the lowest preterm Birth Rate: ", lowest_preterm_birth_rate$County.of.Residence, "\n")
 cat("Lowest preterm Birth Rate: ", lowest_preterm_birth_rate$Preterm.Birth.Rate, "\n")
 
+#What is the average preterm birth rate? 
+# Calculate the average preterm birth rate
+average_preterm_birth_rate <- mean(county_map_preterm_data$Preterm.Birth.Rate, na.rm = TRUE)
+
+cat("Average preterm birth rate: ", round(average_preterm_birth_rate, 2), "\n")
+
+
+```
+
+I now want a similarly interactive map of preterm birth data.
+
+```{r}
+#generate interactive choropleth map 
+library(leaflet)
+library(RColorBrewer)
+
+# Define the color scale for the Birth Rate using colorBin
+pal_fun <- colorBin(palette = brewer.pal(9, "YlOrRd")[c(1:5, 7)], 
+                    bins = c(0, 5, 10, 15, 20, 25), 
+                    reverse = FALSE)
+
+county_map_preterm_data$Preterm.Birth.Rate <- as.numeric(county_map_preterm_data$Preterm.Birth.Rate)
+
+# Create the popup message for each county
+pu_message <- paste0(county_map_preterm_data$County.of.Residence, 
+                     "<br>Preterm Birth Rate: ",      
+                     round(county_map_preterm_data$Preterm.Birth.Rate, 1), "%")
+
+# Create the leaflet map with the polygons
+leaflet(county_map_preterm_data) |>
+  addPolygons(stroke = FALSE,               
+              fillColor = ~pal_fun(Preterm.Birth.Rate),
+              fillOpacity = 0.7, smoothFactor = 0.5,
+              popup = pu_message) |>   
+  addProviderTiles(providers$CartoDB.Positron) |>   
+  addLegend("bottomright",               
+            pal = pal_fun,              
+            values = ~Preterm.Birth.Rate,  
+            title = 'Preterm Birth Rate',    
+            opacity = 1) |>             
+  addScaleBar()
+
+```
+
+Now I want to explore sex-stratified data for preterm birth.
+
+```{r}
+
+```
+
+Number of NICU admissions by gestational age
+
+```{r}
+# Summarize the data by gestational age for total births
+gestational_births_summary <- cleaned_data %>%
+  group_by(OE.Gestational.Age.Recode.10) %>%
+  summarise(
+    Total_Births = n()  # Count the total number of births in each gestational age category
+  ) %>%
+  ungroup()
+
+# Plot the total number of births by gestational age
+ggplot(gestational_births_summary, aes(x = OE.Gestational.Age.Recode.10, y = Total_Births, fill = OE.Gestational.Age.Recode.10)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  labs(
+    title = "Total Number of Births by Gestational Age",
+    x = "Gestational Age at Birth",
+    y = "Total Number of Births"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+Now I want to explore gestational age and NICU admission.
+
+```{r}
+# Summarizing the data by gestational age and NICU admission status
+gestational_nicu_summary <- cleaned_data %>%
+  group_by(OE.Gestational.Age.Recode.10) %>%
+  summarise(
+    Total_Births = n(),  # Count the total number of births in each gestational age category (both Yes and No)
+    NICU_Admissions = sum(NICU.Admission == "Yes", na.rm = TRUE),  # Count NICU admissions
+    Proportion_NICU_Admission = NICU_Admissions / Total_Births  # Calculate proportion of NICU admissions
+  ) %>%
+  ungroup()
+
+# Now, plot the proportion of NICU admissions by gestational age
+library(ggplot2)
+
+ggplot(gestational_nicu_summary, aes(x = OE.Gestational.Age.Recode.10, y = Proportion_NICU_Admission, fill = OE.Gestational.Age.Recode.10)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  labs(
+    title = "Proportion of NICU Admissions by Gestational Age",
+    x = "Gestational Age at Birth",
+    y = "Proportion of NICU Admissions"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+```
+
+I want to view this data stratified by sex.
+
+```{r}
+gestational_nicu_sex_summary <- cleaned_data %>%
+  group_by(OE.Gestational.Age.Recode.10, Sex.of.Infant) %>%
+  summarise(
+    Total_Births = n(),  # Count the total number of births in each gestational age category and sex
+    NICU_Admissions = sum(NICU.Admission == "Yes", na.rm = TRUE),  # Count NICU admissions
+    Proportion_NICU_Admission = NICU_Admissions / Total_Births  # Calculate proportion of NICU admissions
+  ) %>%
+  ungroup()
+
+# Print the summarized data to check
+print(gestational_nicu_sex_summary)
+
+library(ggplot2)
+
+ggplot(gestational_nicu_sex_summary, aes(x = OE.Gestational.Age.Recode.10, y = Proportion_NICU_Admission, fill = Sex.of.Infant)) +
+  geom_bar(stat = "identity", position = "dodge") +  # Use 'dodge' for separate bars for each sex
+  labs(
+    title = "Proportion of NICU Admissions by Gestational Age and Sex",
+    x = "Gestational Age at Birth",
+    y = "Proportion of NICU Admissions"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+```
+
+Exploratory analysis of gestational age and sex
+
+```{r}
+gestational_nicu_sex_summary <- cleaned_data %>%
+  group_by(OE.Gestational.Age.Recode.10, Sex.of.Infant) %>%
+  summarise(
+    Total_Births = n()  # Count the total number of infants for each gestational age and sex
+  ) %>%
+  ungroup()
+
+# Print the summarized data to check
+print(gestational_nicu_sex_summary)
+
+library(ggplot2)
+
+ggplot(gestational_nicu_sex_summary, aes(x = OE.Gestational.Age.Recode.10, y = Total_Births, fill = Sex.of.Infant)) +
+  geom_bar(stat = "identity", position = "dodge") +  # Use 'dodge' for separate bars for each sex
+  labs(
+    title = "Number of Infants Born by Gestational Age and Sex",
+    x = "Gestational Age at Birth",
+    y = "Total Number of Infants"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+Further exploratory analysis of gestational age and sex
+
+```{r}
+gestational_nicu_sex_summary_grouped <- cleaned_data %>%
+  mutate(
+    Gestational_Age_Group = ifelse(OE.Gestational.Age.Recode.10 %in% c("Under 20 weeks", "20 - 27 weeks", "28 - 31 weeks", "32 - 35 weeks", "36 weeks"), "Preterm", "Term")
+  ) %>%
+  group_by(Gestational_Age_Group, Sex.of.Infant) %>%
+  summarise(
+    Total_Births = n()
+  ) %>%
+  ungroup()
+
+# Create the bar graph
+ggplot(gestational_nicu_sex_summary_grouped, aes(x = Gestational_Age_Group, y = Total_Births, fill = Sex.of.Infant)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(
+    title = "Number of Infants Born by Gestational Age Group and Sex",
+    x = "Gestational Age Group",
+    y = "Total Number of Infants"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+Are males more likely to be preterm?
+
+```{r}
+# Create binary variable for preterm (1) vs term (0)
+cleaned_data$Preterm_Binary <- ifelse(cleaned_data$OE.Gestational.Age.Recode.10 %in% c("Under 20 weeks", "20 - 27 weeks", "28 - 31 weeks", "32 - 35 weeks", "36 weeks"), 1, 0)
+
+# Logistic regression to test if males are more likely to be preterm
+logistic_model <- glm(Preterm_Binary ~ Sex.of.Infant, data = cleaned_data, family = "binomial")
+summary(logistic_model)
+
+```
+
+Are males more likely to be born extremely preterm (\<28 wks)?
+
+```{r}
+# Create a binary variable for extremely preterm (<28 weeks)
+cleaned_data$Extremely_Preterm <- ifelse(cleaned_data$OE.Gestational.Age.Recode.10 == "Under 20 weeks" |
+                                           cleaned_data$OE.Gestational.Age.Recode.10 == "20 - 27 weeks", 1, 0)
+
+# Fit a logistic regression model
+model <- glm(Extremely_Preterm ~ Sex.of.Infant, data = cleaned_data, family = binomial)
+
+# Summary of the model
+summary(model)
+
+```
+
+Are males more likely to be born very preterm (28-32 wks)
+
+```{r}
+# Create a binary variable for very preterm (28-32 weeks)
+cleaned_data$Very_Preterm <- ifelse(cleaned_data$OE.Gestational.Age.Recode.10 %in% c("28 - 31 weeks", "32 - 35 weeks"), 1, 0)
+
+# Fit a logistic regression model
+model <- glm(Very_Preterm ~ Sex.of.Infant, data = cleaned_data, family = binomial)
+
+# Summary of the model
+summary(model)
+
+```
+
+Are males more likely to be admitted to the NICU?
+
+```{r}
+logistic_model <- glm(NICU.Admission == "Yes" ~ Sex.of.Infant, data = cleaned_data, family = "binomial")
+summary(logistic_model)
+
+```
+
+Choropleth map for sex-stratified preterm birth data
+
+```{}
 ```
 
 Describe your results and include relevant tables, plots, and code/comments used to obtain them. You may refer to the @sec-methods as needed. End with a brief conclusion of your findings related to the question you set out to address. You can include references if you'd like, but this is not required.
