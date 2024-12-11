@@ -681,13 +681,17 @@ summary(model)
 
 ```
 
-## Discussion
-
 ## Conclusion
 
-This the conclusion. The @sec-results can be invoked here.
+This study used natality data from CDC WONDER to interrogate preterm birth within a cohort of 11,653 infants across 496 counties. I conducted an exploratory analysis to generate interactive maps and identify counties with the highest (Hinds County, MS; 17.9 %) and lowest (Tompkins, NY; 2.6%) preterm birth rates. Given the known regional health disparities, it is unsurprising the highest preterm birth rates are found in the Deep South. This provides evidence for the need to implement a county-level intervention to address preterm birth inequity.
+
+I used logistic regression to identify the associations of gestational age and sex in NICU admission. Gestational age of 28-31 weeks had the highest association with NICU admission (OR: 20.9, 95% CI: 16.23-26.9) while being male only slightly increased likelihood of NICU admission (OR: 1.1, 95% CI: 1.022-1.20). A gestational age of 41 weeks (OR: 0.44, 95% CI: 0.37-0.52) or \>42 weeks (OR: 0.008, 95% CI: 0.0012-0.063) decreased the likelihood of NICU admission. These associations are in agreement with previous studies indicating that infants born at lower gestational ages are more likely to require therapeutic intervention (Thebaud et al., 2019).
+
+Myriad biological and social determinants of health contribute to preterm birth outcomes. There are well-established regional health disparities, with the southeastern United States having the highest preterm birth rates (March of Dimes, 2024). Structural racism also contributes to preterm birth inequities, with Black infants having the highest probability of preterm birth (March of Dimes, 2024). Additional co-morbidities and environmental exposures contribute, such as hypertension, extreme heat, diabetes, and air pollution (March of Dimes, 2024). There are similar disparities for infant and maternal mortality in the United States (March of Dimes, 2024).
 
 ## References
+
+March of Dimes. "2024 March of Dimes Report Card: United States." Retrieved December 11, 2024, from <https://www.marchofdimes.org/sites/default/files/2024-11/US_Report_Card_2024_English.pdf>
 
 Albert, R., Lee, A., Lingappan, K. Response to Therapeutic Interventions in the NICU: Role of Sex as a Biological Variable. 2023. *Neoreviews, 24*(12), e797-e805.
 
