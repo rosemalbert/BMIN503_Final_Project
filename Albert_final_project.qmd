@@ -1,5 +1,5 @@
 ---
-title: "Regional Analysis of Preterm Birth Characteristics"
+title: "Interrogating sex as a biological variable in preterm birth inequity"
 subtitle: "BMIN503/EPID600 Final Project"
 author: "Rose Albert"
 format: html
@@ -10,7 +10,7 @@ embed-resources: true
 
 ------------------------------------------------------------------------
 
-# Interrogating sex as a biological variable in county-level preterm birth inequity
+# Interrogating sex as a biological variable in preterm birth inequity
 
 December 13, 2024
 
@@ -18,23 +18,27 @@ By Rose Albert
 
 ## Overview {#sec-overview}
 
-Preterm birth affects approximately 10% of all births, and there is a well-established male vulnerability and female resilience during the neonatal period. The goal of this project is to interrogate sex as a biological variable at the county-level using CDC Wonder Natality Data and identify sex-differences in preterm birth rates and NICU admission. I have spoken with Dr. Aimin Chen and Dr. Heather Burris about biological and structural determinants contributing to preterm birth inequity, as well as potential areas of clinical, public health, and policy intervention.
+Preterm birth affects approximately 10% of all births, and there is a well-established male vulnerability and female resilience during the neonatal period. The goal of this project is to interrogate sex as a biological variable using county-level data from the National Vital Statistics System queried using CDC WONDER (Wide-Ranging Online Data for Epidemiologic Research). This project will assess preterm-birth rates and NICU admissions. I have spoken with two experts in perinatal health, Dr. Aimin Chen and Dr. Heather Burris, about biological and structural determinants contributing to preterm birth inequity, as well as potential areas of clinical, public health, and policy intervention.
 
 The data for this project can be found in my [final project GitHub repository](https://github.com/rosemalbert/BMIN503_Final_Project/tree/master).
 
 ## Introduction {#sec-introduction}
 
-Preterm birth can predispose infants to immediate risks in the neonatal period as well as long-term adverse sequelae. For example, preterm infants are born with underdeveloped lungs and often require therapeutic interventions such as surfactant administration, antibiotics, steroids, mechanical ventilation, and supplemental oxygen for survival. However, these therapeutics can also pose postnatal insults and contribute to lung injury and diseases such as bronchopulmonary dysplasia.
+More than a third of infant deaths in the US are preterm-related (Callaghan et al., 2006). Preterm birth can predispose infants to immediate risks in the neonatal period as well as long-term adverse sequelae. For example, preterm infants are born with underdeveloped lungs and often require therapeutic interventions such as surfactant administration, antibiotics, steroids, mechanical ventilation, and supplemental oxygen for survival (Thebaud et al., 2019). However, these therapeutics can also pose postnatal insults and contribute to lung injury and chronic diseases such as bronchopulmonary dysplasia (Thebaud et al., 2019). Despite advances in neonatal care that have improved overall survival of preterm infants, rates of bronchopulmonary dysplasia have continued to rise (Bell et al., 2022). Bronchopulmonary dysplasia is one of many male-biased complications of prematurity (van Westering-Kroon et al. 2021). In addition to a male disadvantage in neonatal outcomes, there is also a male vulnerability for pregnancy complications and indications for preterm birth (Inkster et al., 2021).
 
-Interrogation of sex as a biological variable has received increasing attention as a critical area for understanding basic pathophysiology and differential response to therapeutics. Male sex is an independent risk factor for numerous pediatric diseases and diseases of prematurity. This project will investigate male susceptibility to preterm birth and NICU admission at the county-level. An understanding of preterm birth characteristics can inform local public health interventions.
+Interrogation of sex as a biological variable has received increasing attention as a critical area for understanding basic pathophysiology and differential response to therapeutics (Albert, Lee, & Lingappan, 2023). The NIH has also established consideration of sex as a biological variable as a research mandate ("NOT-OD-15-102", 2015). This project will investigate male susceptibility to preterm birth and NICU admission using publicly available county-level data. An understanding of preterm birth characteristics can inform neonatal care toward precision medicine approaches.
 
 ## Methods {#sec-methods}
 
-[*Data curation and cleaning*]{.underline}
+[*Data sources*]{.underline}
 
 *County-level Birth Characteristics Data Source:* I am using the [CDC Wonder Natality Data](https://wonder.cdc.gov/wonder/help/Natality-expanded.html#) (2023) grouped by "County of Residence," "Sex of Infant," "NICU Admission," and "OE Gestational Age Recode 10," with the measures "Births" and "Percent of Total Births."
 
 *Mapping Data Source:* I am drawing from Assignment 5 to use geospatial data, tidy census, and leaflet to generate interactive maps.update.packages("tidycensus")
+
+[*Data curation and cleaning*]{.underline}
+
+To work with this dataset, I loaded the necessary libraries and merged the county population data with the birth data by "County.of.Residence.Code". To clean the data, I am removing redundant columns and renaming my variables. I am also creating a new variable for preterm birth by grouping the gestational ages that are \<37 weeks. I then merge this with my county shape files.
 
 ```{r}
 #load necessary libraries
@@ -111,8 +115,6 @@ cleaned_data <- merged_data %>%
 cleaned_data <- cleaned_data %>%
   mutate(County.of.Residence.Code = as.character(County.of.Residence.Code))
 
-# View cleaned data
-head(cleaned_data)
 
 # Convert 'County.of.Residence.Code' to character before merging
 preterm_rate_data <- cleaned_data %>%
@@ -126,9 +128,6 @@ preterm_rate_data <- cleaned_data %>%
         Preterm.Birth.Rate = (Preterm.Births / Total.Births) * 100
     ) %>%
    ungroup()
-
-# View the result to ensure 'County.of.Residence.Code' is retained
-head(preterm_rate_data)
 
 #load census shapefile data and merge by county FIPs 
 counties_sf <- counties(cb = TRUE, resolution = "20m") # cb = TRUE for a simplified geometry
@@ -146,7 +145,7 @@ cleaned_data$Sex.of.Infant <- as.factor(cleaned_data$Sex.of.Infant)
 
 ```
 
-Create data frame for sex-stratified analysis.
+To create a data frame to assess preterm birth rates, I stratified the preterm-birth data by sex and calculated the preterm birth rate for each county by dividing the number of preterm births by the total number of births in each county, multiplied by 100 to report as a percentage.
 
 ```{r}
 # Create a new data frame stratified by sex
@@ -162,40 +161,28 @@ preterm_sex_data <- cleaned_data %>%
   ) %>%
   ungroup()
 
-# View the new data frame
-head(preterm_sex_data)
-
-```
-
-```{r}
-# Assuming ELGANS is defined as less than 28 weeks of gestational age
-preterm_sex_data_elgans <- cleaned_data %>%
-  mutate(
-    Is.Preterm = OE.Gestational.Age.Recode.10 %in% c("28 - 31 weeks", "32 - 35 weeks", "36 weeks", "20 - 27 weeks", "Under 20 weeks"),
-    ELGANS = ifelse(OE.Gestational.Age.Recode.10 %in% c("Under 20 weeks", "20 - 27 weeks"), "ELGANS", "Not ELGANS"),  # ELGANS is <28 weeks
-    County.of.Residence.Code = as.character(County.of.Residence.Code)  # Convert to character
-  ) %>%
-  group_by(County.of.Residence, County.of.Residence.Code, Sex.of.Infant, ELGANS) %>%
-  summarise(
-    Preterm.Births = sum(ifelse(Is.Preterm, Births.x, 0), na.rm = TRUE),
-    Preterm.Birth.Rate = (Preterm.Births / Total.Births) * 100
-  ) %>%
-  ungroup()
-
-# View the new stratified data frame
-head(preterm_sex_data_elgans)
 
 ```
 
 [*Analysis plan*]{.underline}
 
-*Exploratory analysis of data:* Generate county-level choropleth maps of birth rates ((births/total population)\*1000 for each county). Generate county-level choropleth maps of preterm birth rates (\<37 gestational age births/total population). Generate sex-stratified maps of preterm birth rates. Generate sex-stratified choropleth maps of NICU admissions by county. Generate bar graphs showing NICU admission rates by sex and sex distribution of gestational age groups.
+*Exploratory analysis of data:*
 
-*Data analysis:* Conduct 2-way ANOVA to determine if sex as a biological variable is a significant predictor of NICU admission. Identify counties with highest and lowest preterm birth rates, and the highest and lowest NICU admission rates.
+-   Generate county-level choropleth maps of birth rates ((births/total population)\*1000 for each county).
+
+-   Generate county-level choropleth maps of preterm birth rates (\<37 gestational age births/total population).
+
+-   Generate bar graphs showing sex-stratified distribution of births by gestational age groups.
+
+-   Generate bar graphs showing sex-stratified distribution of NICU admission rates by gestational age groups.
+
+-   Conduct logistic regression to identify relationships between gestational age and sex with the outcome of NICU admission
+
+*Additional data analysis:* Identify counties with highest and lowest preterm birth rates, and the highest and lowest NICU admission rates.
 
 ## Results {#sec-results}
 
-First, I developed a county-level choropleth maps of birth rates (live births per 1000 people) for counties that did not have any missing data. The below map represents 496 counties.
+First, I developed county-level choropleth maps of birth rates (live births per 1000 people) for the 496 counties represented in this dataset. I used this output to identify the county with the highest birth rate (Rockland County, NY; 19.4) and the lowest birth rate (Charlotte County, FL; 4.99). The average birth rate was 10.81.
 
 ```{r}
 #load necessary libraries
@@ -277,7 +264,7 @@ cat("Average Birth Rate: ", average_birth_rate$Average_Birth_Rate, "\n")
 
 ```
 
-To better visualize and explore the birth rates, I then generated an interactive choropleth map of birth rates by county.
+To better visualize and explore the birth rates, I then generated an interactive choropleth map of birth rates by county. This made it easier to identify regional trends and easily navigate to counties of interest such as Philadelphia County. Philadelphia County has a birth rate above average at 11.8 live births per 1000 people. My hometown in Hamilton County, TN has a similar birth rate at 11.9 live births per 1000 people.
 
 ```{r}
 #generate interactive choropleth map 
@@ -310,7 +297,7 @@ leaflet(county_map_cleaned_data) |>
 
 ```
 
-I repeated the analysis to generate county-level choropleth maps of preterm birth rates (\<37 gestational age births/total number of live births).
+I repeated the analysis to generate county-level choropleth maps of preterm birth rates ((\<37 gestational age births/total number of live births)\*100). The average preterm birth rate of the counties in this dataset is 9.5%. Hinds County, MS has the highest preterm birth rate (17.85%) while Tompkins County, NY has the lowest preterm birth rate (2.63%).
 
 ```{r}
 
@@ -364,7 +351,7 @@ cat("Average preterm birth rate: ", round(average_preterm_birth_rate, 2), "\n")
 
 ```
 
-I now want a similarly interactive map of preterm birth data.
+I now want a similarly interactive map of preterm birth data. From this, I can identify that Philadelphia has an above average preterm birth rate at 11%. My hometown in Hamilton County, TN has a similar preterm birth rate at 10.6%.
 
 ```{r}
 #generate interactive choropleth map 
@@ -399,13 +386,7 @@ leaflet(county_map_preterm_data) |>
 
 ```
 
-Now I want to explore sex-stratified data for preterm birth.
-
-```{r}
-
-```
-
-Number of NICU admissions by gestational age
+I now want to interrogate the total number of births by gestational age group and visualize the distribution using a bar graph. I can see that most of the infants are born at 32-35 weeks and 37-39 weeks gestational age. The \<20 week gestational age group is least represented.
 
 ```{r}
 # Summarize the data by gestational age for total births
@@ -428,7 +409,7 @@ ggplot(gestational_births_summary, aes(x = OE.Gestational.Age.Recode.10, y = Tot
 
 ```
 
-Now I want to explore gestational age and NICU admission.
+Now I want to explore the proportion of NICU admission by gestational age. We can see a general trend where lower gestational ages have a higher proportion of NICU admission. Notably, infants less than 20 weeks old do not follow this trend, though this may represent survivor bias (infants born less than 20 weeks old may not survive for very long after birth or are inadequately powered to be assessed in this analysis). Infants born 28-31 weeks gestational age had the highest proportion of NICU admission.
 
 ```{r}
 # Summarizing the data by gestational age and NICU admission status
@@ -456,7 +437,33 @@ ggplot(gestational_nicu_summary, aes(x = OE.Gestational.Age.Recode.10, y = Propo
 
 ```
 
-I want to view this data stratified by sex.
+I repeated this analysis stratified by sex, first by visualizing the number of births per gestational age.
+
+```{r}
+gestational_nicu_sex_summary <- cleaned_data %>%
+  group_by(OE.Gestational.Age.Recode.10, Sex.of.Infant) %>%
+  summarise(
+    Total_Births = n()  # Count the total number of infants for each gestational age and sex
+  ) %>%
+  ungroup()
+
+# Print the summarized data to check
+print(gestational_nicu_sex_summary)
+
+library(ggplot2)
+
+ggplot(gestational_nicu_sex_summary, aes(x = OE.Gestational.Age.Recode.10, y = Total_Births, fill = Sex.of.Infant)) +
+  geom_bar(stat = "identity", position = "dodge") +  # Use 'dodge' for separate bars for each sex
+  labs(
+    title = "Number of Infants Born by Gestational Age and Sex",
+    x = "Gestational Age at Birth",
+    y = "Total Number of Infants"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+I then stratified this data by sex to visualize gestational age and proportion of NICU admissions.
 
 ```{r}
 gestational_nicu_sex_summary <- cleaned_data %>%
@@ -485,58 +492,138 @@ ggplot(gestational_nicu_sex_summary, aes(x = OE.Gestational.Age.Recode.10, y = P
 
 ```
 
-Exploratory analysis of gestational age and sex
+I then ran a logistic regression with gestational age only. Each variable was significant except for gestational age \<20 weeks. The \<20 weeks age group also has a high standard error (108.2). Moving forward, this will be excluded in the analysis.
 
 ```{r}
-gestational_nicu_sex_summary <- cleaned_data %>%
-  group_by(OE.Gestational.Age.Recode.10, Sex.of.Infant) %>%
-  summarise(
-    Total_Births = n()  # Count the total number of infants for each gestational age and sex
-  ) %>%
-  ungroup()
+# Convert NICU.Admission to binary (1 for "Yes", 0 for "No")
+ cleaned_data$NICU.Admission <- ifelse(cleaned_data$NICU.Admission == "Yes", 1, 0)
+  
+ # Fit the logistic regression model again
+ logistic_model <- glm(NICU.Admission ~ OE.Gestational.Age.Recode.10,  
+                      data = cleaned_data, 
+                      family = "binomial")
 
-# Print the summarized data to check
-print(gestational_nicu_sex_summary)
+# Summary of the logistic regression model
+summary(logistic_model)
+```
+
+I repeated the analysis to exclude \<20 weeks gestational age.
+
+```{r}
+
+cleaned_data$OE.Gestational.Age.Recode.10 <- factor(cleaned_data$OE.Gestational.Age.Recode.10, 
+                                                    levels = c("40 weeks",
+                                                               "20 - 27 weeks",
+                                                               "28 - 31 weeks", 
+                                                               "32 - 35 weeks", 
+                                                               "36 weeks", 
+                                                               "37 - 39 weeks", 
+                                                               "41 weeks", 
+                                                               "42 weeks or more"))
+ 
+  # Fit the logistic regression model again
+ logistic_model <- glm(NICU.Admission ~ OE.Gestational.Age.Recode.10,  
+                      data = cleaned_data, 
+                      family = "binomial")
+
+# Summary of the logistic regression model
+summary(logistic_model)
+```
+
+Using these data, I then calculated odds ratios for gestational age on the outcome of NICU admission. From these data, 28-31 weeks and 20-27 weeks had the highest positive association with NICU admission, Gestational age of 41 and 41 weeks or more had an odds ratio less than 1, indicating these infants are less likely to be admitted to the NICU.
+
+```{r}
+# Extract model coefficients
+coefficients <- summary(logistic_model)$coefficients
+
+# Calculate odds ratios (exponentiate the coefficients)
+odds_ratios <- exp(coefficients[, "Estimate"])
+lower_ci <- exp(coefficients[, "Estimate"] - 1.96 * coefficients[, "Std. Error"])
+upper_ci <- exp(coefficients[, "Estimate"] + 1.96 * coefficients[, "Std. Error"])
+
+# Add confidence intervals to the data frame
+odds_ratios_df <- data.frame(
+  Gestational_Age = rownames(coefficients),
+  Odds_Ratio = odds_ratios,
+  Lower_CI = lower_ci,
+  Upper_CI = upper_ci
+)
+
+# Remove the intercept row
+odds_ratios_df <- odds_ratios_df[odds_ratios_df$Gestational_Age != "(Intercept)", ]
+
+print(odds_ratios_df)
 
 library(ggplot2)
 
-ggplot(gestational_nicu_sex_summary, aes(x = OE.Gestational.Age.Recode.10, y = Total_Births, fill = Sex.of.Infant)) +
-  geom_bar(stat = "identity", position = "dodge") +  # Use 'dodge' for separate bars for each sex
+ggplot(odds_ratios_df, aes(x = reorder(Gestational_Age, Odds_Ratio), y = Odds_Ratio)) +
+  geom_pointrange(aes(ymin = Lower_CI, ymax = Upper_CI), 
+                  color = "blue", 
+                  shape = 16) +  # Add points with error bars
+  coord_flip() +  # Flip axes for readability
+  geom_hline(yintercept = 1, linetype = "dashed", color = "red") +  # Reference line at OR = 1
   labs(
-    title = "Number of Infants Born by Gestational Age and Sex",
-    x = "Gestational Age at Birth",
-    y = "Total Number of Infants"
+    title = "Odds Ratios for NICU Admission",
+    x = "Variable",
+    y = "Odds Ratio (OR)"
   ) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Improve label readability
 
 ```
 
-Further exploratory analysis of gestational age and sex
+I repeated this analysis to conduct a logistic regression and calculate odds ratios for gestational age, this time including male sex. Being born male had a slight association with NICU admission (OR: 1.1, 95% CI: 1.022-1.20).
 
 ```{r}
-gestational_nicu_sex_summary_grouped <- cleaned_data %>%
-  mutate(
-    Gestational_Age_Group = ifelse(OE.Gestational.Age.Recode.10 %in% c("Under 20 weeks", "20 - 27 weeks", "28 - 31 weeks", "32 - 35 weeks", "36 weeks"), "Preterm", "Term")
-  ) %>%
-  group_by(Gestational_Age_Group, Sex.of.Infant) %>%
-  summarise(
-    Total_Births = n()
-  ) %>%
-  ungroup()
+# Fit the logistic regression model with Gestational age and Sex of infant
+logistic_model <- glm(NICU.Admission ~ OE.Gestational.Age.Recode.10 + Sex.of.Infant, 
+                      data = cleaned_data, 
+                      family = "binomial")
 
-# Create the bar graph
-ggplot(gestational_nicu_sex_summary_grouped, aes(x = Gestational_Age_Group, y = Total_Births, fill = Sex.of.Infant)) +
-  geom_bar(stat = "identity", position = "dodge") +
+# Show the model summary
+summary(logistic_model)
+
+# Extract model coefficients
+coefficients <- summary(logistic_model)$coefficients
+
+# Calculate odds ratios (exponentiate the coefficients)
+odds_ratios <- exp(coefficients[, "Estimate"])
+lower_ci <- exp(coefficients[, "Estimate"] - 1.96 * coefficients[, "Std. Error"])
+upper_ci <- exp(coefficients[, "Estimate"] + 1.96 * coefficients[, "Std. Error"])
+
+# Create a data frame of the odds ratios
+odds_ratios_df <- data.frame(
+  Variable = rownames(coefficients),
+  Odds_Ratio = odds_ratios,
+  Lower_CI = lower_ci,
+  Upper_CI = upper_ci
+)
+
+# Remove the intercept row
+odds_ratios_df <- odds_ratios_df[odds_ratios_df$Variable != "(Intercept)", ]
+
+# Print the odds ratios data frame
+print(odds_ratios_df)
+
+library(ggplot2)
+
+ggplot(odds_ratios_df, aes(x = reorder(Variable, Odds_Ratio), y = Odds_Ratio)) +
+  geom_pointrange(aes(ymin = Lower_CI, ymax = Upper_CI), 
+                  color = "blue", 
+                  shape = 16) +  # Add points with error bars
+  coord_flip() +  # Flip axes for readability
+  geom_hline(yintercept = 1, linetype = "dashed", color = "red") +  # Reference line at OR = 1
   labs(
-    title = "Number of Infants Born by Gestational Age Group and Sex",
-    x = "Gestational Age Group",
-    y = "Total Number of Infants"
+    title = "Odds Ratios for NICU Admission",
+    x = "Variable",
+    y = "Odds Ratio (OR)"
   ) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Improve label readability
 
 ```
 
-Are males more likely to be preterm?
+To interrogate if males more likely to be preterm, I stratified the data into preterm (\<37 weeks) and term gestational age groups and conducted a logistic regression. Male sex was not significant (p = 0.482).
 
 ```{r}
 # Create binary variable for preterm (1) vs term (0)
@@ -548,12 +635,43 @@ summary(logistic_model)
 
 ```
 
-Are males more likely to be born extremely preterm (\<28 wks)?
+I visualized number of infants born term and preterm stratified by sex using a bar graph.
+
+```{r}
+library(ggplot2)
+
+# Summarize the data by Sex and Preterm status
+summary_data <- cleaned_data %>%
+  group_by(Sex.of.Infant, Preterm_Binary) %>%
+  summarize(Count = n(), .groups = "drop")
+
+# Map Preterm_Binary to labels for the plot
+summary_data$Preterm_Label <- ifelse(summary_data$Preterm_Binary == 1, "Preterm", "Term")
+
+# Create the bar plot with Gestational Age on the x-axis
+ggplot(summary_data, aes(x = Preterm_Label, y = Count, fill = Sex.of.Infant)) +
+  geom_bar(stat = "identity", position = "dodge") +  # Dodge for side-by-side bars
+  labs(
+    title = "Number of Infants Born Term and Preterm Stratified by Sex",
+    x = "Gestational Age",
+    y = "Number of Infants",
+    fill = "Sex of Infant"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),  # Angle x-axis labels for better readability
+    legend.position = "top"
+  )
+
+
+```
+
+To identify if males are more likely to be born extremely preterm (\<28 wks), I conducted a logistic regression by combining the age groups \<20 weeks and 20-27 weeks to create a binary outcome variable. Male sex was not significant (p = 0.344).
 
 ```{r}
 # Create a binary variable for extremely preterm (<28 weeks)
 cleaned_data$Extremely_Preterm <- ifelse(cleaned_data$OE.Gestational.Age.Recode.10 == "Under 20 weeks" |
-                                           cleaned_data$OE.Gestational.Age.Recode.10 == "20 - 27 weeks", 1, 0)
+                          cleaned_data$OE.Gestational.Age.Recode.10 == "20 - 27 weeks", 1, 0)
 
 # Fit a logistic regression model
 model <- glm(Extremely_Preterm ~ Sex.of.Infant, data = cleaned_data, family = binomial)
@@ -563,35 +681,24 @@ summary(model)
 
 ```
 
-Are males more likely to be born very preterm (28-32 wks)
-
-```{r}
-# Create a binary variable for very preterm (28-32 weeks)
-cleaned_data$Very_Preterm <- ifelse(cleaned_data$OE.Gestational.Age.Recode.10 %in% c("28 - 31 weeks", "32 - 35 weeks"), 1, 0)
-
-# Fit a logistic regression model
-model <- glm(Very_Preterm ~ Sex.of.Infant, data = cleaned_data, family = binomial)
-
-# Summary of the model
-summary(model)
-
-```
-
-Are males more likely to be admitted to the NICU?
-
-```{r}
-logistic_model <- glm(NICU.Admission == "Yes" ~ Sex.of.Infant, data = cleaned_data, family = "binomial")
-summary(logistic_model)
-
-```
-
-Choropleth map for sex-stratified preterm birth data
-
-```{}
-```
-
-Describe your results and include relevant tables, plots, and code/comments used to obtain them. You may refer to the @sec-methods as needed. End with a brief conclusion of your findings related to the question you set out to address. You can include references if you'd like, but this is not required.
+## Discussion
 
 ## Conclusion
 
 This the conclusion. The @sec-results can be invoked here.
+
+## References
+
+Albert, R., Lee, A., Lingappan, K. Response to Therapeutic Interventions in the NICU: Role of Sex as a Biological Variable. 2023. *Neoreviews, 24*(12), e797-e805.
+
+Bell, E.F., et al., Mortality, in-hospital morbidity, care practices, and 2-year outcomes for extremely preterm infants in the US, 2013-2018. *JAMA*, 2022. 327(3): p. 248-263.
+
+Callaghan WM, MacDorman MF, Rasmussen SA, Qin C, Lackritz EM. The contribution of preterm birth to infant mortality rates in the United States. Pediatrics. 2006;118(4):1566-1573.
+
+Inkster AM, Fernández-Boyano I, Robinson WP. Sex differences are here to stay: relevance to prenatal care. Journal of Clinical Medicine. 2021 Jul 5;10(13):3000.
+
+NOT-OD-15-102: Consideration of Sex as a Biological Variable in NIH-Funded Research. https://grants.nih.gov/grants/guide/notice-files/NOT-OD-15-102.html. Accessed 10 Dec. 2024.
+
+Thebaud, B., et al., Bronchopulmonary dysplasia. *Nat Rev Dis Primers,* 2019. **5**(1): p. 78.
+
+van Westering-Kroon, E., et al., Male Disadvantage in Oxidative Stress-Associated Complications of Prematurity: A Systematic Review, Meta-Analysis and Meta-Regression. *Antioxidants* (Basel), 2021. 10(9).
