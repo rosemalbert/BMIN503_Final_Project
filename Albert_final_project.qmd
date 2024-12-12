@@ -689,9 +689,11 @@ I used logistic regression to identify the associations of gestational age and s
 
 Myriad biological and social determinants of health contribute to preterm birth outcomes. There are well-established regional health disparities, with the southeastern United States having the highest preterm birth rates (March of Dimes, 2024). Structural racism also contributes to preterm birth inequities, with Black infants having the highest probability of preterm birth (March of Dimes, 2024). Additional co-morbidities and environmental exposures contribute, such as hypertension, extreme heat, diabetes, and air pollution (March of Dimes, 2024). There are similar disparities for infant and maternal mortality in the United States (March of Dimes, 2024).
 
-## References
+The objective of this study was to interrogate sex as a biological variable in NICU admissions. An understanding of sex differences is critical for precision medicine approaches. This will allow therapeutic intervention that is tailored to the right patient. Additionally, by understanding sex-related mechanisms that are advantageous or deleterious in a disease context, this may uncover therapeutic targets that can be beneficial for both sexes.
 
-March of Dimes. "2024 March of Dimes Report Card: United States." Retrieved December 11, 2024, from <https://www.marchofdimes.org/sites/default/files/2024-11/US_Report_Card_2024_English.pdf>
+Future works can investigate additional neonatal outcomes and preterm birth indicators such as chorioamnionitis, bronchopulmonary dysplasia, retinopathy of prematurity, and preeclampsia. Integration of patient data can also consider maternal characteristics and health status.
+
+## References
 
 Albert, R., Lee, A., Lingappan, K. Response to Therapeutic Interventions in the NICU: Role of Sex as a Biological Variable. 2023. *Neoreviews, 24*(12), e797-e805.
 
@@ -700,6 +702,8 @@ Bell, E.F., et al., Mortality, in-hospital morbidity, care practices, and 2-year
 Callaghan WM, MacDorman MF, Rasmussen SA, Qin C, Lackritz EM. The contribution of preterm birth to infant mortality rates in the United States. Pediatrics. 2006;118(4):1566-1573.
 
 Inkster AM, Fernández-Boyano I, Robinson WP. Sex differences are here to stay: relevance to prenatal care. Journal of Clinical Medicine. 2021 Jul 5;10(13):3000.
+
+March of Dimes. "2024 March of Dimes Report Card: United States." Retrieved December 11, 2024, from <https://www.marchofdimes.org/sites/default/files/2024-11/US_Report_Card_2024_English.pdf>
 
 NOT-OD-15-102: Consideration of Sex as a Biological Variable in NIH-Funded Research. https://grants.nih.gov/grants/guide/notice-files/NOT-OD-15-102.html. Accessed 10 Dec. 2024.
 
